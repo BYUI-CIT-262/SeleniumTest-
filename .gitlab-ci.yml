@@ -1,0 +1,24 @@
+sync-with-github:
+  before_script:
+    - git config --global user.name "${GITLAB_USER_NAME}"
+    - git config --global user.email "${GITLAB_USER_EMAIL}"
+  script:
+<<<<<<< HEAD
+    - python3 p59-search.py -h test
+    # - python3 p59-sign-in.py -h test
+    # - python3 p59-setting.py -h test
+    # - python3 p59-reset-pwd.py -h test
+    # - python3 p59-favorite.py -h test
+    # - python3 p59-pitchCard-Business.py -h test
+    # - python3 p59-pitchCard-Employee.py -h test
+    # - python3 p59-pitchCard-Nonprofit.py -h test
+    # - python3 p59-pitchCard-resume.py -h test
+
+=======
+    - git remote add github $REMOTE_REPOSITORY_URL
+    - git checkout master
+    - git pull origin master
+    - git pull github master
+    - git status
+    - git push http://root:$ACCESS_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:master
+>>>>>>> 24c477030c5b745487d7bf5f2b375dd2608586a1
