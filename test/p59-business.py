@@ -96,7 +96,7 @@ driver.find_element_by_xpath('/html/body/app-root/main/app-layout/p-dialog[2]/di
 time.sleep(3)
 driver.find_element_by_xpath('/html/body/app-root/main/app-layout/div[2]/div/div/div/div[3]/div/div[2]/div').click()
 time.sleep(3)
-
+ 
 # -------------------  Information page  ----------------------
 fullName = driver.find_element_by_xpath('//*[@id="businessName"]')
 fullName.send_keys('Test')
