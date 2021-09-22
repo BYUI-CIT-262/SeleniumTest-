@@ -96,9 +96,6 @@ time.sleep(2)
 
 # ------------- Information page ----------------------
 
-
-
-
 driver.find_element_by_xpath('//*[@id="yourName"]').send_keys('Test')
 
 fullName = driver.find_element_by_xpath('//*[@id="businessName"]')
