@@ -1,8 +1,16 @@
+#from test.utilities.create_user import create_user
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
 import sys, getopt
+from utilities.create_user import create_user
+from utilities.delete_user import delete_user
+import requests
+
+# create a dict with the log in username and password to pass into the create_user function
+create_user()
+print('user created')
 
 
 def main(argv):
@@ -82,5 +90,8 @@ driver.back()
 
 # time.sleep(5)
 print("test end")
+
+delete_user()
+print('user deleted')
 driver.quit()
 
