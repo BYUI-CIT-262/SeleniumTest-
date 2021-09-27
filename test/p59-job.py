@@ -9,6 +9,7 @@ from utilities.delete_user import delete_user
 import requests
 
 # create a dict with the log in username and password to pass into the create_user function
+
 create_user()
 print('user created')
 
@@ -71,6 +72,14 @@ print('click create pitchcard')
 jobcard=driver.find_element_by_xpath('/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[2]/div[5]/div[3]/button')
 jobcard.click()
 print('click job card')
+
+num_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input')
+num_job_card.clear()
+num_job_card.send_keys('1')
+
+create_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[2]/button')
+create_job_card.click()
+print('create 1 Job Card')
 
 
 
