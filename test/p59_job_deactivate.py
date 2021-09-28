@@ -42,6 +42,10 @@ login(driver)
 
 profile(driver)
 
+employeePortal(driver)
+
+switchSlider(driver)
+
 sys.exit()
 
 logout()

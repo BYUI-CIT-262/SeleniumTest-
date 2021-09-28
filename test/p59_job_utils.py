@@ -81,3 +81,18 @@ def profile(driver):
    )
    profile.click()
    print('click profile')
+
+def employeePortal(driver):
+   employer_portals = driver.find_element_by_xpath(
+      '/html/body/app-root/p-sidebar/div[2]/div/div/ul/li[3]/a/span'
+   )
+   employer_portals.click()
+   print('click employer portal')  
+
+def switchSlider(driver):
+   deactivate = driver.find_element_by_xpath(
+     '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div[2]/app-employer-portal-table/div/p-table/div/div/table/tbody/tr[1]/td[4]/div/p-inputswitch/div/span'
+     #/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[1]/div/div/div/p-inputswitch/div/span
+   )
+   deactivate.click()
+   print('slide to deactivate')    
