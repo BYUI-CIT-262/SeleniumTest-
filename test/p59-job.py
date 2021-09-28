@@ -10,7 +10,7 @@ import requests
 
 # create a dict with the log in username and password to pass into the create_user function
 
-create_user()
+user_id, user_token,user_email = create_user()
 print('user created')
 
 
@@ -54,7 +54,7 @@ print('click login')
 
 time.sleep(5)
 email = driver.find_element_by_xpath('//*[@id="email"]')
-email.send_keys('pitch59testa+1@gmail.com')
+email.send_keys(user_email)
 
 password = driver.find_element_by_xpath('//*[@id="password"]')
 password.send_keys('Love1111')
@@ -65,32 +65,30 @@ logIn.click()
 time.sleep(2)
 print('log in')
 #code starts here----------------------------------------------------------------------------------------
-create_pitchcard = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]/div[1')
-create_pitchcard.click()
-print('click create pitchcard')
+#create_pitchcard = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]/div[1')
+#create_pitchcard.click()
+#print('click create pitchcard')
 
-jobcard=driver.find_element_by_xpath('/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[2]/div[5]/div[3]/button')
-jobcard.click()
-print('click job card')
+#jobcard=driver.find_element_by_xpath('/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[2]/div[5]/div[3]/button')
+#jobcard.click()
+#print('click job card')
 
-num_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input')
-num_job_card.clear()
-num_job_card.send_keys('1')
+#num_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input')
+#num_job_card.clear()
+#num_job_card.send_keys('1')
 
-create_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[2]/button')
-create_job_card.click()
-print('create 1 Job Card')
+#create_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[2]/button')
+#create_job_card.click()
+#print('create 1 Job Card')
 
 
 
 #-----------------------------------------------------------------------------------------------------
-profi = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
+profi = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
 profi.click()
 time.sleep(2)
 
-logOut = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/div[2]/div')
+logOut = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div')
 logOut.click()
 print('click profile and log out')
 
@@ -100,7 +98,7 @@ driver.back()
 # time.sleep(5)
 print("test end")
 
-delete_user()
+delete_user(id=user_id,token=user_token)
 print('user deleted')
 driver.quit()
 
