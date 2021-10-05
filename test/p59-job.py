@@ -98,6 +98,86 @@ if check_exists_by_xpath(xpath):
    jobcard=driver.find_element_by_xpath(xpath)
    jobcard.click()
    print('click create Employer Portal')
+   time.sleep(3)
+else:
+   delete_user(id=user_id,token=user_token)
+   print('COULD NOT FIND THE DESIRED XPATH')
+   print('user deleted')
+   driver.quit()
+
+
+xpath = '/html/body/app-root/main/app-billing-page/div/div/div/div/div/app-billing-summary/div/div/div[2]/div[1]/div'
+if check_exists_by_xpath(xpath):
+   jobcard=driver.find_element_by_xpath(xpath)
+   jobcard.click()
+   print('click add payment method')
+   time.sleep(3)
+
+else:
+   delete_user(id=user_id,token=user_token)
+   print('COULD NOT FIND THE DESIRED XPATH')
+   print('user deleted')
+   driver.quit()
+
+######################
+# add card info
+######################
+card_number = '4022400001871076'
+cvc = '737'
+month = '12'
+year = '2021'
+xpath = '//*[@id="cardNumber"]/input'
+if check_exists_by_xpath(xpath):
+   jobcard=driver.find_element_by_xpath(xpath)
+   jobcard.send_keys(card_number)
+   print('add card number')
+else:
+   delete_user(id=user_id,token=user_token)
+   print('COULD NOT FIND THE DESIRED XPATH')
+   print('user deleted')
+   driver.quit()
+
+xpath = '//*[@id="month"]/span/input'
+if check_exists_by_xpath(xpath):
+   jobcard=driver.find_element_by_xpath(xpath)
+   jobcard.send_keys(month)
+   print('add month')
+else:
+   delete_user(id=user_id,token=user_token)
+   print('COULD NOT FIND THE DESIRED XPATH')
+   print('user deleted')
+   driver.quit()
+
+xpath = '//*[@id="year"]/span/input'
+if check_exists_by_xpath(xpath):
+   jobcard=driver.find_element_by_xpath(xpath)
+   jobcard.send_keys(month)
+   print('add year')
+else:
+   delete_user(id=user_id,token=user_token)
+   print('COULD NOT FIND THE DESIRED XPATH')
+   print('user deleted')
+   driver.quit()
+
+xpath = '/html/body/div[2]/div/div[2]/div/div[2]/app-payment-method-forms/div/div/div[1]/form/div[2]/div[3]/span/input'
+if check_exists_by_xpath(xpath):
+   jobcard=driver.find_element_by_xpath(xpath)
+   jobcard.send_keys(cvc)
+   print('add cvc')
+else:
+   delete_user(id=user_id,token=user_token)
+   print('COULD NOT FIND THE DESIRED XPATH')
+   print('user deleted')
+   driver.quit()
+###########################
+# finish add card
+###########################
+
+xpath = '/html/body/div[2]/div/div[2]/div/div[2]/app-payment-method-forms/div/div/div[2]/div/button'
+if check_exists_by_xpath(xpath):
+   jobcard=driver.find_element_by_xpath(xpath)
+   jobcard.send_keys(cvc)
+   print('add cvc')
    delete_user(id=user_id,token=user_token)
    print('user deleted')
    driver.quit()
@@ -106,8 +186,6 @@ else:
    print('COULD NOT FIND THE DESIRED XPATH')
    print('user deleted')
    driver.quit()
-
-
 #   num_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input')
 #   num_job_card.clear()
 #   num_job_card.send_keys('1')
