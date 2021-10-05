@@ -116,7 +116,8 @@ def numOfJobCardsToCreate(driver, num_job_cards):
 #
 def profile(driver):
    profile = driver.find_element_by_xpath(
-      '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/img'
+      #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/img'
+      '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div'
    )
    profile.click()
    print('click profile')
@@ -126,7 +127,8 @@ def profile(driver):
 #
 def employeePortal(driver):
    employer_portals = driver.find_element_by_xpath(
-      '/html/body/app-root/p-sidebar/div[2]/div/div/ul/li[3]/a/span'
+     '/html/body/app-root/p-sidebar/div[2]/div/div/ul/li[3]/a/span'
+
    )
    employer_portals.click()
    print('click employer portal')  
