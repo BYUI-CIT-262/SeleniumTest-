@@ -24,7 +24,7 @@ def login(driver):
 
    time.sleep(5)
    email = driver.find_element_by_xpath('//*[@id="email"]')
-   email.send_keys('pitch59testa+1@gmail.com')
+   email.send_keys('pitch59testa+5@gmail.com')
 
    password = driver.find_element_by_xpath('//*[@id="password"]')
    password.send_keys('Love1111')
@@ -101,7 +101,8 @@ def numOfJobCardsToCreate(driver):
 #
 def profile(driver):
    profile = driver.find_element_by_xpath(
-      '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/img'
+      #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/img'
+      '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div'
    )
    profile.click()
    print('click profile')
@@ -111,18 +112,11 @@ def profile(driver):
 #
 def employeePortal(driver):
    employer_portals = driver.find_element_by_xpath(
-      '/html/body/app-root/p-sidebar/div[2]/div/div/ul/li[3]/a/span'
+     '/html/body/app-root/p-sidebar/div[2]/div/div/ul/li[3]/a/span'
+
    )
    employer_portals.click()
    print('click employer portal')  
 
-#
-# Moves the slider switch to the deactivate position in Employer Portal
-#
-def switchSlider(driver):
-   deactivate = driver.find_element_by_xpath(
-     '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div[2]/app-employer-portal-table/div/p-table/div/div/table/tbody/tr[1]/td[4]/div/p-inputswitch/div/span'
-     #/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[1]/div/div/div/p-inputswitch/div/span
-   )
-   deactivate.click()
-   print('slide to deactivate')    
+
+
