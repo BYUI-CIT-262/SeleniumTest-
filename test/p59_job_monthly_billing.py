@@ -1,3 +1,7 @@
+#
+# Selects the monthly billing option on Choose PitchCard Type
+#
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
@@ -39,19 +43,36 @@ driver.get("https://public.p59.dev/welcome")
 print('test start')
 
 login(driver)
+createPitchCard(driver)
 
-profile(driver)
+# Get the current billing info
+billingInfo = driver.find_element_by_xpath(
+    '/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[1]/div/div/div/p-inputswitch/div/div/input'
+)
+ 
+# If it is Annual Billing (aria-checked == "true"), set it to Monthly billing ("false")
+billingChoice = billingInfo.get_attribute("aria-checked")
+if billingChoice == "true":
+   driver.find_element_by_xpath(
+   '/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[1]/div/div/div/p-inputswitch/div/span'
+   ).click()
 
-employeePortal(driver)
+   time.sleep(2)
 
-switchSlider(driver)
+   # Verify that the billing choice is set to Monthly Billing ("false")
+   billingChoice = billingInfo.get_attribute("aria-checked")
+   if billingChoice == "false":
+      print ('Billing choice is set to Monthly.')
+   else:
+      print("ERROR: Billing choice didn't get set to Montly.")
 
-sys.exit()
+else:
+   print('Billing choice was set to Monthly Already. No change.' + billingChoice)
+   
 
-logout()
-
+logout(driver)
 driver.back()
-# time.sleep(5)
+
 print("test end")
 driver.quit()
 
