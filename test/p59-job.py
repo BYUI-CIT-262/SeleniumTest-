@@ -52,7 +52,7 @@ link = driver.find_element_by_xpath(
 link.click()
 print('click login')
 
-time.sleep(5)
+time.sleep(2)
 email = driver.find_element_by_xpath('//*[@id="email"]')
 email.send_keys(user_email)
 
@@ -65,40 +65,73 @@ logIn.click()
 time.sleep(2)
 print('log in')
 #code starts here----------------------------------------------------------------------------------------
-#create_pitchcard = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]/div[1')
-#create_pitchcard.click()
-#print('click create pitchcard')
+from selenium.common.exceptions import NoSuchElementException        
+def check_exists_by_xpath(xpath):
+    try:                                                 # DO NOT DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        driver.find_element_by_xpath(xpath)              # DO NOT DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    except NoSuchElementException:                       # DO NOT DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        return False                                     # DO NOT DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    return True                                          # DO NOT DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# Check the xpath value################################################################################
 
-#jobcard=driver.find_element_by_xpath('/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[2]/div[5]/div[3]/button')
-#jobcard.click()
-#print('click job card')
+create_pitchcard = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]/div[1]')
+create_pitchcard.click()
+print('click create pitchcard')
+time.sleep(3)
 
-#num_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input')
-#num_job_card.clear()
-#num_job_card.send_keys('1')
+xpath = '/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[2]/div[5]/div[3]/button'
+if check_exists_by_xpath(xpath):
+   jobcard=driver.find_element_by_xpath(xpath)
+   jobcard.click()
+   print('click job card')
+else:
+   delete_user(id=user_id,token=user_token)
+   print('COULD NOT FIND THE DESIRED XPATH')
+   print('user deleted')
+   driver.quit()
 
-#create_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[2]/button')
-#create_job_card.click()
-#print('create 1 Job Card')
+time.sleep(3)
 
 
+xpath = '/html/body/div[1]/div/div[2]/div/div[4]/div'
+if check_exists_by_xpath(xpath):
+   jobcard=driver.find_element_by_xpath(xpath)
+   jobcard.click()
+   print('click create Employer Portal')
+   delete_user(id=user_id,token=user_token)
+   print('user deleted')
+   driver.quit()
+else:
+   delete_user(id=user_id,token=user_token)
+   print('COULD NOT FIND THE DESIRED XPATH')
+   print('user deleted')
+   driver.quit()
 
-#-----------------------------------------------------------------------------------------------------
-profi = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
-profi.click()
-time.sleep(2)
 
-logOut = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div')
-logOut.click()
-print('click profile and log out')
+#   num_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input')
+#   num_job_card.clear()
+#   num_job_card.send_keys('1')
 
-time.sleep(2)
-driver.back()
+#   create_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[2]/button')
+##   create_job_card.click()
+ #  print('create 1 Job Card')
+   
+   #-----------------------------------------------------------------------------------------------------
+#profi = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
+#profi.click()
+#time.sleep(2)
+
+#logOut = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div')
+#logOut.click()
+#print('click profile and log out')
+
+#time.sleep(2)
+#driver.back()
 
 # time.sleep(5)
-print("test end")
+#print("test end")
 
-delete_user(id=user_id,token=user_token)
-print('user deleted')
-driver.quit()
+
+
+
 

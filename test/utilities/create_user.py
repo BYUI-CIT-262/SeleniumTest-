@@ -1,14 +1,15 @@
 def create_user():
     import requests
-    user_email = 'pitch59testa+3@gmail.com'
+    user_email = 'pitch59testa+5@gmail.com'
 
     args = {
             "firstName": 'test',
             "lastName": 'test',
             "isTesterUser": True,
-            "contactNumber": '9999999486',
+            "contactNumber": '9999999488',
             "emailId": user_email,
             "password": 'Love1111',
+            "isTestUser":True,
             "zipCode": '83440',
             "otpCode": 1234
             }
