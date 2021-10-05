@@ -77,38 +77,6 @@ def selectJob(driver):
    time.sleep(2)
    print('click select on job')
 
-#
-# Click on the "ADDPITCHCARDS" button in "How many Job PitchCards would you like 
-# to create now?" window.  Select the number of cards specified.
-#
-def numOfJobCardsToCreate(driver, num_job_cards):
-   
-   #numCards = Select(driver.find_element_by_xpath(
-   #   '/html/body/div[1]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input'
-   #   '/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span'
-   #))
-
-   numCards = driver.find_element_by_xpath(
-      '/html/body/div[3]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input'
-   )
-   #numCards = Select(driver.find_element_by_class_name(
-   #   '/html/body/div[3]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input'
-   #   '/html/body/div[3]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span'
-   #   'input.ui-inputnumber-input.ui-inputtext.ui-corner-all.ui-state-default.ui-widget.ui-state-filled'
-   #))
-   #numCards.select_by_value(num_job_cards)
-   print(numCards.get_attribute('value'))
-   numCards.clear()
-   numCards.send_keys(num_job_cards)
-   print ('The number of cards to create is set to ' + repr(num_job_cards))
-   time.sleep(2)
-  
-   addPitchCards = driver.find_element_by_xpath(
-      '/html/body/div[1]/div/div[2]/div/app-create-team-pitchcard/div/div[2]/button'
-   )
-   #addPitchCards.click()
-   time.sleep(2)
-   print('click add pitchcards')
 
 #
 # Click on the profile icon at the right-top cornor of the screen which brings down a menu for
