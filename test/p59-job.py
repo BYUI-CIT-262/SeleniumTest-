@@ -131,6 +131,7 @@ if check_exists_by_xpath(xpath):
    jobcard=driver.find_element_by_xpath(xpath)
    jobcard.send_keys(card_number)
    print('add card number')
+   time.sleep(2)
 else:
    delete_user(id=user_id,token=user_token)
    print('COULD NOT FIND THE DESIRED XPATH')
@@ -176,8 +177,9 @@ else:
 xpath = '/html/body/div[2]/div/div[2]/div/div[2]/app-payment-method-forms/div/div/div[2]/div/button'
 if check_exists_by_xpath(xpath):
    jobcard=driver.find_element_by_xpath(xpath)
-   jobcard.send_keys(cvc)
-   print('add cvc')
+   jobcard.click()
+   print('click save')
+   time.sleep(3)
    delete_user(id=user_id,token=user_token)
    print('user deleted')
    driver.quit()
