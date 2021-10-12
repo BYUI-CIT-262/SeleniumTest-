@@ -51,7 +51,6 @@ activated = driver.find_element_by_xpath(
 '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div/div[2]/app-employer-portal-table/div/p-table/div/div/table/tbody/tr[1]/td[4]/div/p-inputswitch/div/span'
 )
 activated.click()
-print('slide to activate')
 
 deactivated = driver.find_element_by_xpath(
 '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div[2]/app-employer-portal-table/div/p-table/div/div/table/tbody/tr[1]/td[4]/div/p-inputswitch/div/div/input'
