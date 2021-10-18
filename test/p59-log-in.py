@@ -39,7 +39,7 @@ driver.get("https://public.p59.dev/welcome")
 
 print('test start')
 link = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
+    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[4]')
 link.click()
 print('click login')
 
@@ -72,12 +72,12 @@ print('log in')
 # print('click right arrow on the pitch card')
 
 profi = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
+    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div')
 profi.click()
 time.sleep(2)
 
 logOut = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/div[2]/div')
+    '/html/body/app-root/p-sidebar/div[2]/div/div/div[2]/div')
 logOut.click()
 print('click profile and log out')
 
