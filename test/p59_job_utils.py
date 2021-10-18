@@ -42,7 +42,7 @@ def login(driver):
 #
 def logout(driver):
    profi = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div'
+    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div'
    )
    profi.click()
    time.sleep(2)
