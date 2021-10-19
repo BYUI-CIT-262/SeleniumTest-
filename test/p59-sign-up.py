@@ -48,7 +48,7 @@ lastName = driver.find_element_by_xpath('//*[@id="lastName"]')
 lastName.send_keys('test')
 
 email = driver.find_element_by_xpath('//*[@id="emailId"]')
-email.send_keys('p59testa+1@gmail.com')
+email.send_keys('p59testa+2@gmail.com')
 
 number = driver.find_element_by_xpath('//*[@id="contactNumber"]/input')
 number.send_keys('9999999485')
