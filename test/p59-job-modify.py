@@ -44,10 +44,17 @@ profile(driver)
 
 employeePortal(driver)
 
+time.sleep(5)
+
 modify_card = driver.find_element_by_xpath(
      '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div/div[2]/app-employer-portal-table/div/p-table/div/div/table/tbody/tr[2]/td[2]/span'
 
    )
+
+employer_portals = driver.find_element_by_xpath(
+   '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[1]/app-my-profile/div/ul/li[3]/div'
+)
+
 employer_portals.click()
 print('click employer portal')  
 
