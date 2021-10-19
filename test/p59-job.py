@@ -88,6 +88,7 @@ else:
    delete_user(id=user_id,token=user_token)
    print('COULD NOT FIND THE DESIRED XPATH')
    print('user deleted')
+   print('**Test Failed**')
    driver.quit()
 
 time.sleep(3)
@@ -103,6 +104,7 @@ else:
    delete_user(id=user_id,token=user_token)
    print('COULD NOT FIND THE DESIRED XPATH')
    print('user deleted')
+   print('**Test Failed**')
    driver.quit()
 
 
@@ -117,6 +119,7 @@ else:
    delete_user(id=user_id,token=user_token)
    print('COULD NOT FIND THE DESIRED XPATH')
    print('user deleted')
+   print('**Test Failed**')
    driver.quit()
 
 ######################
@@ -136,6 +139,7 @@ else:
    delete_user(id=user_id,token=user_token)
    print('COULD NOT FIND THE DESIRED XPATH')
    print('user deleted')
+   print('**Test Failed**')
    driver.quit()
 
 xpath = '//*[@id="month"]/span/input'
@@ -147,6 +151,7 @@ else:
    delete_user(id=user_id,token=user_token)
    print('COULD NOT FIND THE DESIRED XPATH')
    print('user deleted')
+   print('**Test Failed**')
    driver.quit()
 
 xpath = '//*[@id="year"]/span/input'
@@ -158,6 +163,7 @@ else:
    delete_user(id=user_id,token=user_token)
    print('COULD NOT FIND THE DESIRED XPATH')
    print('user deleted')
+   print('**Test Failed**')
    driver.quit()
 
 xpath = '/html/body/div[2]/div/div[2]/div/div[2]/app-payment-method-forms/div/div/div[1]/form/div[2]/div[3]/span/input'
@@ -169,6 +175,7 @@ else:
    delete_user(id=user_id,token=user_token)
    print('COULD NOT FIND THE DESIRED XPATH')
    print('user deleted')
+   print('**Test Failed**')
    driver.quit()
 ###########################
 # finish add card
@@ -187,6 +194,7 @@ else:
    delete_user(id=user_id,token=user_token)
    print('COULD NOT FIND THE DESIRED XPATH')
    print('user deleted')
+   print('**Test Failed**')
    driver.quit()
 #   num_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input')
 #   num_job_card.clear()
