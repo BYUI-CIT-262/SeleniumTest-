@@ -1,6 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 import time
 import sys, getopt
 from p59_job_utils import *
@@ -42,21 +45,24 @@ login(driver)
 
 profile(driver)
 
+time.sleep(2)
+
 employeePortal(driver)
+
+time.sleep(2)
 
 #
 # Moves the slider switch to the deactivate position in Employer Portal
 #
-deactivate = driver.find_element_by_xpath(
-    
-'/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div[2]/app-employer-portal-table/div/p-table/div/div/table/tbody/tr[1]/td[4]/div/p-inputswitch/div/div/input'
-)
-deactivate.click()
-print('slide to deactivate')    
+WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "body > app-root > main > app-history-favorites-layout > div > div > div > div > div > div.p-col-12.p-md-8.p-lg-9.container-layout > app-account-employer-portal > div.ng-star-inserted > div > div > div.ep-body.ng-star-inserted > app-employer-portal-table > div > p-table > div > div > table > tbody > tr:nth-child(2) > td:nth-child(4) > div > p-inputswitch > div > span"))).click()
 
-sys.exit()
+time.sleep(2)
 
-logout()
+WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "body > app-root > main > app-history-favorites-layout > div > div > div > div > div > div.p-col-12.p-md-8.p-lg-9.container-layout > app-account-employer-portal > div.ng-star-inserted > div > div > div.ep-body.ng-star-inserted > app-employer-portal-table > div > p-table > div > div > table > tbody > tr:nth-child(2) > td:nth-child(4) > div > p-inputswitch > div > span"))).click()
+
+
+
+logout(driver)
 
 driver.back()
 # time.sleep(5)

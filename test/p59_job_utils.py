@@ -18,7 +18,7 @@ def login(driver):
    #test account = p59testa+5@gmail.com   pwd Love1111
 
    link = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]'
+    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[4]'
     )
    link.click()
    print('click login')
@@ -42,7 +42,7 @@ def login(driver):
 #
 def logout(driver):
    profi = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div'
+    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div'
    )
    profi.click()
    time.sleep(2)
@@ -85,7 +85,7 @@ def selectJob(driver):
 def profile(driver):
    profile = driver.find_element_by_xpath(
       #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/img'
-      '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div'
+      '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div'
    )
    profile.click()
    print('click profile')
