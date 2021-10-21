@@ -63,9 +63,18 @@ if billingChoice == "true":
    billingChoice = billingInfo.get_attribute("aria-checked")
    if billingChoice == "false":
       print ('Billing choice is set to Monthly.')
-   else:
-      print("ERROR: Billing choice didn't get set to Montly.")
 
+      #Change back to Annual billing
+      driver.find_element_by_xpath(
+      '/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[1]/div/div/div/p-inputswitch/div/span'
+      ).click()
+      time.sleep(2)
+   else:
+      print("ERROR: Billing choice didn't get set to Monthly.")
+
+   
+
+   
 else:
    print('Billing choice was set to Monthly Already. No change.' + billingChoice)
    

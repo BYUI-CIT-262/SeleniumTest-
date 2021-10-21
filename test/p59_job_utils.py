@@ -60,7 +60,8 @@ def logout(driver):
 #
 def createPitchCard(driver):
    createCard = driver.find_element_by_xpath(
-      '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]/div[1]'
+      #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]/div[1]'
+      '/html/body/app-root/main/app-welcome-page/section/div/div/div/div[3]/div'
    )
    createCard.click()
    time.sleep(2)

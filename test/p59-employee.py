@@ -21,7 +21,7 @@ def main(argv):
    if headless:
       driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
    else:
-      driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
+      driver = webdriver.Chrome(executable_path="chromedriver", options=options)
    return driver
 
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
@@ -37,18 +37,20 @@ driver.get("https://public.p59.dev/welcome")
 
 #old account = 1111@gmail.com   pwd = Love1111
 #new test account = p59testa@gmail.com   pwd Love1111
-link = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
+link = driver.find_element_by_xpath(
+   #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]'
+    'html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[4]')
 link.click()
 
 email = driver.find_element_by_xpath('//*[@id="email"]')
-email.send_keys('p59testa@gmail.com')
+email.send_keys('pitch59testa+1@gmail.com')
 
 password = driver.find_element_by_xpath('//*[@id="password"]')
 password.send_keys('Love1111')
 
 logIn = driver.find_element_by_xpath('/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button')
 logIn.click()
-time.sleep(2)
+time.sleep(3)
 print('Log in')
 
 createPitchCard = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]')

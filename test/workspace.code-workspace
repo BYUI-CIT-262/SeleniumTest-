@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "../../../CSE 110 Files"
+		},
+		{
+			"path": "../../../CSE 121 (JavaScript)"
+		},
+		{
+			"path": "../../../Docker"
+		},
+		{
+			"path": "../../../../Downloads/week02"
+		},
+		{
+			"path": "../../../../Downloads/week03"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../Downloads/week04"
+		},
+		{
+			"path": "../../../../Downloads/week05"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "week05"
+	}
+}
