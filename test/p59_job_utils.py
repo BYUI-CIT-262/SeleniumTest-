@@ -75,8 +75,17 @@ def logout(driver):
 # Click on the "CREATE A PITCHCARD" button at the top of the screen after login
 #
 def createPitchCard(driver):
+<<<<<<< HEAD
    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[1]/app-my-profile/div/ul/li[1]/div/div/i'))).click()
    time.sleep(1)
+=======
+   createCard = driver.find_element_by_xpath(
+      #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]/div[1]'
+      '/html/body/app-root/main/app-welcome-page/section/div/div/div/div[3]/div'
+   )
+   createCard.click()
+   time.sleep(2)
+>>>>>>> 5914d37448b09dc452de23e61ebbabf5155faa7c
    print('click create pitch card')
 
 #
