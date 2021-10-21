@@ -58,7 +58,7 @@ def selectNumOfJobs(driver):
 #
 def logout(driver):
    profi = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div'
+    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div'
    )
    profi.click()
    time.sleep(2)
@@ -93,9 +93,17 @@ def selectJob(driver):
 # Click on the profile icon at the right-top cornor of the screen which brings down a menu for
 # selecting the "Employer Protal" among other things (My PtichCards, Pockets, Logout, etc.)
 #
-def profile(driver):
-   WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/img'))).click()
-   print('click profile')
+#def profile(driver):
+#<<<<<<< HEAD
+ #  WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/img'))).click()
+#=======
+  # profile = driver.find_element_by_xpath(
+  #    #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/img'
+  #    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div'
+  # )
+  # profile.click()
+#>>>>>>> b7feafbbe530e0af21c41231fd1a3f647e4d9823
+  # print('click profile')
 
 #
 # Click on the "Employer Portal" option under the profile menu

@@ -20,7 +20,7 @@ def main(argv):
    if headless:
       driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
    else:
-      driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
+      driver = webdriver.Chrome(executable_path="chromedriver", options=options)
    return driver
 
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
@@ -39,7 +39,7 @@ driver.get("https://public.p59.dev/welcome")
 
 print('test start')
 link = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
+    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[4]')
 link.click()
 print('click login')
 
@@ -72,12 +72,12 @@ print('log in')
 # print('click right arrow on the pitch card')
 
 profi = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
+    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div')
 profi.click()
 time.sleep(2)
 
 logOut = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/div[2]/div')
+    '/html/body/app-root/p-sidebar/div[2]/div/div/div[2]/div')
 logOut.click()
 print('click profile and log out')
 
