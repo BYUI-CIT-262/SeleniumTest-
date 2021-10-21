@@ -49,18 +49,17 @@ time.sleep(2)
 
 employeePortal(driver)
 
-time.sleep(2)
 
 #
 # Moves the slider switch to the deactivate position in Employer Portal
 #
 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "body > app-root > main > app-history-favorites-layout > div > div > div > div > div > div.p-col-12.p-md-8.p-lg-9.container-layout > app-account-employer-portal > div.ng-star-inserted > div > div > div.ep-body.ng-star-inserted > app-employer-portal-table > div > p-table > div > div > table > tbody > tr:nth-child(2) > td:nth-child(4) > div > p-inputswitch > div > span"))).click()
-
+print("click toggle on")
 time.sleep(2)
 
 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "body > app-root > main > app-history-favorites-layout > div > div > div > div > div > div.p-col-12.p-md-8.p-lg-9.container-layout > app-account-employer-portal > div.ng-star-inserted > div > div > div.ep-body.ng-star-inserted > app-employer-portal-table > div > p-table > div > div > table > tbody > tr:nth-child(2) > td:nth-child(4) > div > p-inputswitch > div > span"))).click()
-
-
+print("click toggle off")
+time.sleep(5)
 
 logout(driver)
 
