@@ -90,27 +90,35 @@ print('click on the more info button')
 driver.find_element_by_id("businessName").clear()
 time.sleep(1)
 driver.find_element_by_id("businessName").send_keys('P59 Test')
+
 #delete the your name and reenter "John Brown"
 driver.find_element_by_id("title").clear()
 time.sleep(1)
 driver.find_element_by_id("title").send_keys('John Brown')
+
 #delete the email and reenter "jbrown@gmail.com"
 time.sleep(1)
+
 #driver.find_element_by_id("email").clear()
 time.sleep(1)
+
 #driver.find_element_by_id("email").send_keys('jbrown@gmail.com')
 #delete the phone number and reenter "(123) 456-7890"
+
 driver.find_element_by_id("contactNumber").clear()
 time.sleep(1)
 driver.find_element_by_id("contactNumber").send_keys('(123) 456-7890')
+
 #enter jibberish into the website and then delete that info
 driver.find_element_by_id("websiteLink").send_keys('Blorpity Florp. Delete me!')
 time.sleep(1)
 driver.find_element_by_id("websiteLink").clear()
+
 #delete the address and reenter "1009 Larch Drive"
 driver.find_element_by_id("address").clear()
 time.sleep(1)
 driver.find_element_by_id("address").send_keys('1009 Larch Drive')
+
 #delete the city and reenter "Rexburg"
 # driver.find_element_by_id("/html/body/div[1]/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/div/app-enter-information/form/div/div[2]/span[3]/p-autocomplete/span/input").clear()
 # driver.find_element_by_id("/html/body/div[1]/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/div/app-enter-information/form/div/div[2]/span[3]/p-autocomplete/span/input").send_keys('Rexburg')
