@@ -75,17 +75,14 @@ def logout(driver):
 # Click on the "CREATE A PITCHCARD" button at the top of the screen after login
 #
 def createPitchCard(driver):
-<<<<<<< HEAD
    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[1]/app-my-profile/div/ul/li[1]/div/div/i'))).click()
    time.sleep(1)
-=======
    createCard = driver.find_element_by_xpath(
       #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]/div[1]'
       '/html/body/app-root/main/app-welcome-page/section/div/div/div/div[3]/div'
    )
    createCard.click()
    time.sleep(2)
->>>>>>> 5914d37448b09dc452de23e61ebbabf5155faa7c
    print('click create pitch card')
 
 #
@@ -94,6 +91,7 @@ def createPitchCard(driver):
 def selectJob(driver):
    #this does not work unless window is maximized. when it's not full screen it will scroll down to the button but you'll get an error when trying to click it. 
    driver.maximize_window()
+   print('maximize window')
    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div[1]/div/div[2]/div[5]/div[3]/button'))).click()
    print('click select on job')
 
@@ -102,9 +100,9 @@ def selectJob(driver):
 # Click on the profile icon at the right-top cornor of the screen which brings down a menu for
 # selecting the "Employer Protal" among other things (My PtichCards, Pockets, Logout, etc.)
 #
-#def profile(driver):
+def profile(driver):
 #<<<<<<< HEAD
- #  WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/img'))).click()
+   WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/img'))).click()
 #=======
   # profile = driver.find_element_by_xpath(
   #    #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/img'
