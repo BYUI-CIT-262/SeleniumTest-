@@ -85,9 +85,18 @@ driver.find_element_by_id("title").send_keys('John Brown')
 time.sleep(3)
 driver.find_element_by_id("email").clear() 
 time.sleep(1)
+<<<<<<< HEAD
 driver.find_element_by_id("email").send_keys('jbrown@gmail.com')
 
+=======
+
+#driver.find_element_by_id("email").clear()
+time.sleep(1)
+
+#driver.find_element_by_id("email").send_keys('jbrown@gmail.com')
+>>>>>>> ca2b61bf637ca818efe33c88467af23e8d8b8979
 #delete the phone number and reenter "(123) 456-7890"
+
 driver.find_element_by_id("contactNumber").clear()
 time.sleep(1)
 driver.find_element_by_id("contactNumber").send_keys('(123) 456-7890')
