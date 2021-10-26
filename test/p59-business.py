@@ -35,11 +35,10 @@ options.add_argument('--no-sandbox')
 driver = main(sys.argv[1:])
 driver.get("https://public.p59.dev/welcome")
 
-#old account = 1111@gmail.com   pwd = Love1111
-#new test account = p59testa@gmail.com   pwd Love1111
 link = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
 link.click()
 
+#login with user 'p59testa@gmail.com' and passphrase 'Love1111' and click login
 email = driver.find_element_by_xpath('//*[@id="email"]')
 email.send_keys('p59testa@gmail.com')
 
@@ -51,40 +50,32 @@ logIn.click()
 time.sleep(2)
 print('Log in')
 
+#click to create pitchcard
 createPitchCard = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]')
 createPitchCard.click()
+print('click create pitchcard')
 time.sleep(2)
 
 business = driver.find_element_by_xpath('/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[2]/div[4]/div[3]/button')
 business.click()
+print('select business pitchcard')
 time.sleep(2)
-
-# nextBtn = driver.find_element_by_xpath('/html/body/app-root/main/app-new-cards-packges/div/div/div/div[3]/div/button')
-# nextBtn.click()
-# time.sleep(2)
-# print('create nonprofit')
 
 free = driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-visual-video/div/div[1]/div[2]/div[1]/div/div[2]')
 free.click()
+print('select free')
 time.sleep(2)
 
-# freeTwo = driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-visual-video/div/div[1]/div[2]/div[1]/div/div[2]')
-# freeTwo.click()
-# time.sleep(2)
-# print('to the referal page')
-
-# referBtn = driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-billing-summary/div/div/div[2]/div[2]/ul/li[1]/span[2]/img')
-# referBtn.click()
-# time.sleep(2)
-
-driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-billing-summary/div/div/div[2]/div[1]/div').click()
+billing = driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-billing-summary/div/div/div[2]/div[1]/div')
+billing.click()
+print('click add billing info')
 time.sleep(2)
 
 driver.find_element_by_xpath('//*[@id="cardNumber"]/input').send_keys('4022400001871076')
 driver.find_element_by_xpath('//*[@id="month"]/span/input').send_keys('12')
 driver.find_element_by_xpath('//*[@id="year"]/span/input').send_keys('2021')
 driver.find_element_by_xpath('//*[@id="cvc"]').send_keys('737')
-print('card information')
+print('insert card information')
 time.sleep(5)
 
 driver.find_element_by_xpath('/html/body/div/div/div[2]/div/div[2]/app-payment-method-forms/div/div/div[2]/div/button').click()
