@@ -69,6 +69,8 @@ billing_button = driver.find_element_by_xpath(
 billing_button.click()
 time.sleep(2)
 
+
+# Change fields in the more info section. Save the changes, then revert them and save again.
 more_info = driver.find_element_by_xpath(
     '/html/body/div/div/div[2]/app-ep-layout/div[2]/div/div/div/app-stepper/div/div/p-carousel/div/div/div/div/div/div[3]/div'
 )
@@ -80,3 +82,70 @@ drop_down = driver.find_element_by_xpath(
 )
 drop_down.click()
 time.sleep(2)
+
+item = driver.find_element_by_xpath(
+    '/html/body/div/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/app-more-info/div/form/div/span/p-multiselect/div/div[4]/div/ul/p-multiselectitem[3]/li'
+)
+item.click()
+time.sleep(1)
+
+text_box = driver.find_element_by_xpath(
+    '/html/body/div/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/app-more-info/div/form/div[3]/textarea'
+)
+text_box.send_keys('This is test information, but I am sure the real information will be pretty spiffy')
+time.sleep(1)
+
+save = driver.find_element_by_xpath(
+    '/html/body/div/div/div[2]/app-ep-layout/div[2]/div/div/div[3]/div/div[2]/div'
+)
+save.click()
+time.sleep(2)
+
+# Clear data
+more_info = driver.find_element_by_xpath(
+    '/html/body/div/div/div[2]/app-ep-layout/div[2]/div/div/div/app-stepper/div/div/p-carousel/div/div/div/div/div/div[3]/div'
+)
+more_info.click()
+time.sleep(2)
+
+drop_down = driver.find_element_by_xpath(
+    '/html/body/div/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/app-more-info/div/form/div/span/p-multiselect/div'
+)
+drop_down.click()
+time.sleep(2)
+
+item = driver.find_element_by_xpath(
+    '/html/body/div/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/app-more-info/div/form/div/span/p-multiselect/div/div[4]/div/ul/p-multiselectitem[3]/li'
+)
+item.click()
+time.sleep(1)
+
+text_box = driver.find_element_by_xpath(
+    '/html/body/div/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/app-more-info/div/form/div[3]/textarea'
+)
+text_box.clear()
+time.sleep(2)
+
+save = driver.find_element_by_xpath(
+    '/html/body/div/div/div[2]/app-ep-layout/div[2]/div/div/div[3]/div/div[2]/div'
+)
+save.click()
+time.sleep(2)
+
+# Exit more info
+exit = driver.find_element_by_xpath(
+    '/html/body/div/div/div/div/a/span'
+)
+exit.click()
+time.sleep(1)
+
+profi = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div')
+profi.click()
+time.sleep(2)
+
+logOut = driver.find_element_by_xpath(
+   '/html/body/app-root/p-sidebar/div[2]/div/div/div[2]/div'
+)
+logOut.click()
+time.sleep(2)
+print('test done')
