@@ -4,10 +4,6 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
 import sys, getopt
 from p59_job_utils import *
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-
 
 def main(argv):
    try:
@@ -50,98 +46,17 @@ employeePortal(driver)
 
 time.sleep(5)
 
-# modify_card = driver.find_element_by_xpath(
-#      '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div/div[2]/app-employer-portal-table/div/p-table/div/div/table/tbody/tr[2]/td[2]/span'
+modify_card = driver.find_element_by_xpath(
+     '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div/div[2]/app-employer-portal-table/div/p-table/div/div/table/tbody/tr[2]/td[2]/span'
 
-#    )
+   )
 
+employer_portals = driver.find_element_by_xpath(
+   '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[1]/app-my-profile/div/ul/li[3]/div'
+)
 
-
-
-
-
-
-
-
-
-
-#Enters the employer portal
-WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[1]/app-my-profile/div/ul/li[3]/div"))).click()
+employer_portals.click()
 print('click employer portal')  
-
-
-########Clicks on the edit button
-WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div/div[1]/div[1]/div[1]/div[2]/div[1]/div/div/img"))).click()
-print('click on edit button')
-
-
-
-#######Clicks on the billing button. Will delete information and reenter it.
-WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div/div[2]/app-ep-layout/div[2]/div/div/div[1]/app-stepper/div/div/p-carousel/div/div/div/div/div/div[1]/div"))).click()
-print('click on billing button')
-
-
-
-########Clicks on the information button. Will delete information and renter it.
-WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div/div[2]/app-ep-layout/div[2]/div/div/div[1]/app-stepper/div/div/p-carousel/div/div/div/div/div/div[2]"))).click()
-print('click on the more info button')
-
-#delete the business name and reenter "P59 Test"
-driver.find_element_by_id("businessName").clear()
-time.sleep(1)
-driver.find_element_by_id("businessName").send_keys('P59 Test')
-
-#delete the your name and reenter "John Brown"
-driver.find_element_by_id("title").clear()
-time.sleep(1)
-driver.find_element_by_id("title").send_keys('John Brown')
-
-#delete the email and reenter "jbrown@gmail.com"
-time.sleep(1)
-
-#driver.find_element_by_id("email").clear()
-time.sleep(1)
-
-#driver.find_element_by_id("email").send_keys('jbrown@gmail.com')
-#delete the phone number and reenter "(123) 456-7890"
-
-driver.find_element_by_id("contactNumber").clear()
-time.sleep(1)
-driver.find_element_by_id("contactNumber").send_keys('(123) 456-7890')
-
-#enter jibberish into the website and then delete that info
-driver.find_element_by_id("websiteLink").send_keys('Blorpity Florp. Delete me!')
-time.sleep(1)
-driver.find_element_by_id("websiteLink").clear()
-
-#delete the address and reenter "1009 Larch Drive"
-driver.find_element_by_id("address").clear()
-time.sleep(1)
-driver.find_element_by_id("address").send_keys('1009 Larch Drive')
-
-#delete the city and reenter "Rexburg"
-# driver.find_element_by_id("/html/body/div[1]/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/div/app-enter-information/form/div/div[2]/span[3]/p-autocomplete/span/input").clear()
-# driver.find_element_by_id("/html/body/div[1]/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/div/app-enter-information/form/div/div[2]/span[3]/p-autocomplete/span/input").send_keys('Rexburg')
-# #delete the state and reenter "ID"
-# driver.find_element_by_id("").clear()
-# driver.find_element_by_id("").send_keys('ID')
-#delete the zip code and reenter "83440"
-driver.find_element_by_id("zip").clear()
-time.sleep(1)
-driver.find_element_by_id("zip").send_keys('83440')
-#check and uncheck the "Hide your address from customers"
-
-########Clicks on the more info button. Will delete information and renter it.
-# WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div/div[2]/app-ep-layout/div[2]/div/div/div[1]/app-stepper/div/div/p-carousel/div/div/div/div/div/div[3]"))).click()
-# print('click on the more info button')
-
-
-
-# #########Clicks on the images button
-# WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div/div[2]/app-ep-layout/div[2]/div/div/div[1]/app-stepper/div/div/p-carousel/div/div/div/div/div/div[4]"))).click()
-# print('click on the images button')
-
-
 
 sys.exit()
 

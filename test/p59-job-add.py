@@ -8,6 +8,9 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
 import sys, getopt
 from p59_job_utils import *
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 # test test test 
 def main(argv):
    try:
@@ -46,9 +49,10 @@ login(driver)
 
 # first, count the number of job cards on hand by going to the employee portal
 profile(driver)
-employeePortal(driver)
+#employeePortal(driver)
+myPitchCards(driver)
 
-time.sleep(5)
+time.sleep(3)
 
 # get all the rows in the employer portal table (assume only one table exists on the page)
 jobTable = driver.find_elements_by_tag_name('tr')
@@ -63,15 +67,15 @@ print('The original number of job cards:', num_rows)
 
 # create a new job pitch card
 createPitchCard(driver)
-selectJob(driver)
+#selectJob(driver)
 
 
 # Click on the "ADDPITCHCARDS" button in "How many Job PitchCards would you like 
 # to create now?" window. 
-time.sleep(5)
-numCards = driver.find_element_by_xpath(
-   '/html/body/div[1]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input'
-)
+#time.sleep(5)
+#numCards = driver.find_element_by_xpath(
+#   '/html/body/div[1]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input'
+#)
 
 # some debug info
 #print('element', numCards)
@@ -82,34 +86,57 @@ numCards = driver.find_element_by_xpath(
 #print('aria-valuemax', numCards.get_attribute("aria-valuemax"))
    
 # clear the number of job cards to create.  This will reset to 1.
-numCards.clear()
+#numCards.clear()
    
 # click the add pitchcards button
-addPitchCards = driver.find_element_by_xpath(
-   '/html/body/div[1]/div/div[2]/div/app-create-team-pitchcard/div/div[2]/button'
-)
-addPitchCards.click()
+#addPitchCards = driver.find_element_by_xpath(
+#   '/html/body/div[1]/div/div[2]/div/app-create-team-pitchcard/div/div[2]/button'
+#)
+#addPitchCards.click()
+#time.sleep(2)
+#print('click add pitchcards')
+
+#selects the job option when prompted with what pitch card to create
+selectJob(driver)
 time.sleep(2)
-print('click add pitchcards')
+selectNumOfJobs(driver)
+clickAddPitchCards(driver)
+time.sleep(2)
+clickCreatedOrder(driver)
+#editJobCard(driver)
 
 
 # now, count the number of jopb cards.  It should be one greater.
 # get all the rows in the table (assume only one table exists on the page)
-jobTableNew = driver.find_elements_by_tag_name('tr')
+#jobTableNew = driver.find_elements_by_tag_name('tr')
 # count the number of rows; -1 is needed to account for the header row
-num_rows_new = len(jobTableNew) - 1
-print('The number of job cards after additon(s):', num_rows_new)
+#num_rows_new = len(jobTableNew) - 1
+#print('The number of job cards after additon(s):', num_rows_new)
 
-if num_rows_new != (num_rows + 1):
-   print('test failed.  table row did not inclement by one after adding a job card')
-else:
-   print('success')
+#if num_rows_new != (num_rows + 1):
+#   print('test failed.  table row did not inclement by one after adding a job card')
+#else:
+#   print('success')
+
+
+time.sleep(3)
+driver.find_element_by_css_selector('body > app-root > main > app-history-favorites-layout > div > div > div > div > div > div.p-col-12.p-md-8.p-lg-9.container-layout > app-account-employer-portal > div.ng-star-inserted > div > div > div.ep-body.ng-star-inserted > app-employer-portal-table > div > p-table > div > div > table > tbody > tr:nth-child(1) > td:nth-child(2) > span').click()
+
+#firstLink = driver.find_element_by_class_name("ng-star-inserted")
+#WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, firstLink[0]))).click()
+
+
+
+
+
+
+
 
 
 logout(driver)
 
 driver.back()
-# time.sleep(5)
+#time.sleep(5)
 print("test end")
 driver.quit()
 
