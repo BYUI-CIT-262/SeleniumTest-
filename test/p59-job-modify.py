@@ -108,13 +108,13 @@ driver.find_element_by_id("zip").send_keys('83440')
 #check and uncheck the "Hide your address from customers"
 
 ########Clicks on the more info button.
-# WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div/div[2]/app-ep-layout/div[2]/div/div/div[1]/app-stepper/div/div/p-carousel/div/div/div/div/div/div[3]"))).click()
+# WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#pr_id_9 > div > div > div > div > div:nth-child(3) > div > div.icon"))).click()
 # print('click on the more info button')
 
 
 
 # #########Clicks on the images button
-# WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div/div[2]/app-ep-layout/div[2]/div/div/div[1]/app-stepper/div/div/p-carousel/div/div/div/div/div/div[4]"))).click()
+# WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#pr_id_9 > div > div > div > div > div.ng-star-inserted.ui-carousel-item.ui-carousel-item-active.ui-carousel-item-end > div > div.label"))).click()
 # print('click on the images button')
 
 
