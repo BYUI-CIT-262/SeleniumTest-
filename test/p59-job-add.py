@@ -100,10 +100,16 @@ createPitchCard(driver)
 selectJob(driver)
 time.sleep(2)
 selectNumOfJobs(driver)
+time.sleep(2)
 clickAddPitchCards(driver)
 time.sleep(2)
+clickTestaX(driver)
+time.sleep(2)
 clickCreatedOrder(driver)
-#editJobCard(driver)
+time.sleep(4)
+editJobCard(driver)
+fillInInfo(driver)
+
 
 
 # now, count the number of jopb cards.  It should be one greater.
