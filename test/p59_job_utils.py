@@ -49,7 +49,7 @@ def login(driver):
 
 #makes sure the number of job cards being created it 1
 def selectNumOfJobs(driver):
-   driver.find_element_by_css_selector('body > div.ng-tns-c42-63.ui-dialog-mask.ui-widget-overlay.ui-dialog-visible.ui-dialog-mask-scrollblocker.ng-star-inserted > div > div.ng-tns-c42-63.ui-dialog-content.ui-widget-content > div > app-create-team-pitchcard > div > div.p-grid.p-align-start.no-margins > div.p-col-8 > div.mt-20.mb-20 > p-inputnumber > span > input').clear()
+   driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input').clear()
   # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By. '/html/body/div[1]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input'))).clear()
   # driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input').clear()
    print('enters 1 into text for how many job cards you want to create')
@@ -120,16 +120,30 @@ def myPitchCards(driver):
 
 #creates 1 job card
 def clickAddPitchCards(driver):
-   WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'body > div.ng-tns-c42-63.ui-dialog-mask.ui-widget-overlay.ui-dialog-visible.ui-dialog-mask-scrollblocker.ng-star-inserted > div > div.ng-tns-c42-63.ui-dialog-content.ui-widget-content > div > app-create-team-pitchcard > div > div.p-grid.p-justify-end.p-align-center > button'))).click()
+   WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[2]/app-create-team-pitchcard/div/div[2]/button'))).click()
    print('Clicked add pitchcards')
 
 #categorizes pitch cards by lastest first
 def clickCreatedOrder(driver):
-   WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div/div[2]/app-employer-portal-table/div/p-table/div/div/table/thead/tr/th[3]/div/span'))).click()
+   WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div/div[2]/app-employer-portal-table/div/p-table/div/div[1]/table/thead/tr/th[3]'))).click()
    print('Clicked created to organize')
+   
 
 #clicks on the latest pitch card to edit it
 def editJobCard(driver):
    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div/div[2]/app-employer-portal-table/div/p-table/div/div/table/tbody/tr[1]/td[7]/div/div[4]/div/img'))).click()
    print('opened up the edit of the job card screen')
+
+#clicks the x on testa pop up
+def clickTestaX(driver):
+      WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'body > div.ng-tns-c42-68.ui-dialog-mask.ui-widget-overlay.ui-dialog-visible.ui-dialog-mask-scrollblocker.ng-star-inserted > div > div.ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top.ng-tns-c42-68.ng-star-inserted > div > a > span'))).click()
+      print('clicked the x on testa pop up')
+
+#fills in test information on job card
+def fillInInfo(driver):
+      WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[3]/div/div[2]/div/div[3]/div/button'))).click()
+     # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, ''))).click()
+    
+     
+
 
