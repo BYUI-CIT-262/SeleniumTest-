@@ -72,10 +72,10 @@ time.sleep(1)
 driver.find_element_by_id("title").send_keys('John Brown')
 
 # #delete the email and reenter "jbrown@gmail.com"
-# time.sleep(3)
-# driver.find_element_by_css_selector("#email").clear()  <------- Does not clear the email box.
-# time.sleep(3)
-# driver.find_element_by_id("email").send_keys('jbrown@gmail.com')
+time.sleep(3)
+driver.find_element_by_css_selector("#email").clear()  #<------- Does not clear the email box.
+time.sleep(3)
+driver.find_element_by_css_selector("#email").send_keys('jbrown@gmail.com')
 
 #delete the phone number and reenter "(123) 456-7890"
 driver.find_element_by_css_selector("#contactNumber > input").clear()
