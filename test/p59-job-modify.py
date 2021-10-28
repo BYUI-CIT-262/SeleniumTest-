@@ -50,20 +50,15 @@ employeePortal(driver)
 
 time.sleep(5)
 
-########Clicks on the edit button
-WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, "/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div[1]/div/div/div[1]/div[1]/div[1]/div[2]/div[1]/div/div"))).click()
-print('click on edit button')
-
-
 
 #######Clicks on the billing button. 
-WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div/div[2]/app-ep-layout/div[2]/div/div/div[1]/app-stepper/div/div/p-carousel/div/div/div/div/div/div[1]/div/div[1]"))).click()
+WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#pr_id_9 > div > div > div > div > div.ui-carousel-item.ui-carousel-item-active.ui-carousel-item-start.ng-star-inserted > div"))).click()
 print('click on billing button')
 
 
 
 ########Clicks on the information button. Will delete information and renter it.
-WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div/div[2]/app-ep-layout/div[2]/div/div/div[1]/app-stepper/div/div/p-carousel/div/div/div/div/div/div[2]"))).click()
+WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#pr_id_9 > div > div > div > div > div:nth-child(2) > div"))).click()
 print('click on the more info button')
 
 #delete the business name and reenter "P59 Test"
@@ -76,21 +71,21 @@ driver.find_element_by_id("title").clear()
 time.sleep(1)
 driver.find_element_by_id("title").send_keys('John Brown')
 
-#delete the email and reenter "jbrown@gmail.com"
-time.sleep(3)
-driver.find_element_by_id("email").clear() 
-time.sleep(3)
-driver.find_element_by_id("email").send_keys('jbrown@gmail.com')
+# #delete the email and reenter "jbrown@gmail.com"
+# time.sleep(3)
+# driver.find_element_by_css_selector("#email").clear()  <------- Does not clear the email box.
+# time.sleep(3)
+# driver.find_element_by_id("email").send_keys('jbrown@gmail.com')
 
 #delete the phone number and reenter "(123) 456-7890"
-driver.find_element_by_id("contactNumber").clear()
+driver.find_element_by_css_selector("#contactNumber > input").clear()
 time.sleep(1)
-driver.find_element_by_id("contactNumber").send_keys('(123) 456-7890')
+driver.find_element_by_css_selector("#contactNumber > input").send_keys('(123) 456-7890')
 
 #enter jibberish into the website and then delete that info
 driver.find_element_by_id("websiteLink").send_keys('Blorpity Florp. Delete me!')
 time.sleep(1)
-driver.find_element_by_id("websiteLink").clear()
+driver.find_element_by_id("websiteLink").clear()       #<-------- Does not clear the website link box
 
 #delete the address and reenter "1009 Larch Drive"
 driver.find_element_by_id("address").clear()
@@ -102,16 +97,17 @@ driver.find_element_by_xpath("/html/body/div[1]/div/div[2]/app-ep-layout/div[2]/
 driver.find_element_by_xpath("/html/body/div[1]/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/div/app-enter-information/form/div/div[2]/span[3]/p-autocomplete/span/input").send_keys('Rexburg')
 
 # #delete the state and reenter "ID"
-# driver.find_element_by_id("").clear()
-# driver.find_element_by_id("").send_keys('ID')
+driver.find_element_by_css_selector("#state > span > input").clear()
+driver.find_element_by_css_selector("#state > span > input").send_keys('ID')
 
 #delete the zip code and reenter "83440"
 driver.find_element_by_id("zip").clear()
 time.sleep(1)
 driver.find_element_by_id("zip").send_keys('83440')
+
 #check and uncheck the "Hide your address from customers"
 
-########Clicks on the more info button. Will delete information and renter it.
+########Clicks on the more info button.
 # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div/div[2]/app-ep-layout/div[2]/div/div/div[1]/app-stepper/div/div/p-carousel/div/div/div/div/div/div[3]"))).click()
 # print('click on the more info button')
 
