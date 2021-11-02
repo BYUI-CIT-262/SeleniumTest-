@@ -42,19 +42,23 @@ link = driver.find_element_by_xpath(
 link.click()
 print('click login')
 time.sleep(3)
+
 forget_password = driver.find_element_by_xpath(
     '/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/div[2]/span')
 forget_password.click()
 print('click forgot password')
+
 input_email = driver.find_element_by_xpath(
     '//*[@id="userName"]')
 input_email.send_keys(USERNAME)
 print('input email')
+
 send = driver.find_element_by_xpath(
     '/html/body/app-root/main/app-forgot-password/div/div/div/div/div[2]/div/form/button')
 send.click()
 print('click send \nsending otp email')
 time.sleep(3)
+
 mail = imaplib.IMAP4_SSL('imap.gmail.com')
 mail.login('p59testa@gmail.com', '8lP%3f&aSr8rvFzgDLmN4!t0!TJzuu')
 mail.list()
