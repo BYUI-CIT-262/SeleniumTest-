@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common import keys
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
@@ -24,7 +25,7 @@ def main(argv):
    if headless:
       driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
    else:
-      driver = webdriver.Chrome(executable_path="chromedriver", options=options)
+      driver = webdriver.Chrome("chromedriver", options=options)
    return driver
 
 
@@ -53,57 +54,85 @@ time.sleep(5)
 
 #######Clicks on the billing button. 
 WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#pr_id_9 > div > div > div > div > div.ui-carousel-item.ui-carousel-item-active.ui-carousel-item-start.ng-star-inserted > div"))).click()
-print('click on billing button')
+print('click billing')
 
 
 
 ########Clicks on the information button. Will delete information and renter it.
 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#pr_id_9 > div > div > div > div > div:nth-child(2) > div"))).click()
-print('click on the more info button')
+print('click more info')
 
-#delete the business name and reenter "P59 Test"
+#delete the business name and reenter "testa"
 driver.find_element_by_id("businessName").clear()
 time.sleep(1)
-driver.find_element_by_id("businessName").send_keys('P59 Test')
+driver.find_element_by_id("businessName").send_keys('tesa')
+print('replace business name')
 
-#delete the your name and reenter "John Brown"
+#delete the your name and reenter "test"
 driver.find_element_by_id("title").clear()
 time.sleep(1)
-driver.find_element_by_id("title").send_keys('John Brown')
+driver.find_element_by_id("title").send_keys('test')
+print('replace name')
 
-# #delete the email and reenter "jbrown@gmail.com"
-time.sleep(3)
-driver.find_element_by_css_selector("#email").clear()  #<------- Does not clear the email box.
-time.sleep(3)
-driver.find_element_by_css_selector("#email").send_keys('jbrown@gmail.com')
+# #delete the email and reenter "jbrown@gmail.com" 
+email = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#email")))
+
+#selects and deletes for mac
+email.send_keys(Keys.COMMAND + "a")
+email.send_keys(Keys.BACK_SPACE)
+#selects and deletes for windows
+email.send_keys(Keys.CONTROL + "a")
+email.send_keys(Keys.BACK_SPACE)
+#replaces email
+email.send_keys('pitch59testa+5@gmail.com')
+print('replace email')
 
 #delete the phone number and reenter "(123) 456-7890"
 driver.find_element_by_css_selector("#contactNumber > input").clear()
 time.sleep(1)
 driver.find_element_by_css_selector("#contactNumber > input").send_keys('(123) 456-7890')
+print('replace phone number')
 
-#enter jibberish into the website and then delete that info
-driver.find_element_by_id("websiteLink").send_keys('Blorpity Florp. Delete me!')
+
+#enter text into the field and then delete
+url = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "websiteLink")))
+url.send_keys('Delete me!')
 time.sleep(1)
-driver.find_element_by_id("websiteLink").clear()       #<-------- Does not clear the website link box
+#selects and deletes for mac
+url.send_keys(Keys.COMMAND + "a")
+url.send_keys(Keys.BACK_SPACE)
+#selects and deletes for windows
+url.send_keys(Keys.CONTROL + "a")
+url.send_keys(Keys.BACK_SPACE)  
+print('replace url')
 
 #delete the address and reenter "1009 Larch Drive"
-driver.find_element_by_id("address").clear()
+address = driver.find_element_by_id("address")
+address.clear()
 time.sleep(1)
-driver.find_element_by_id("address").send_keys('1009 Larch Drive')
+address.send_keys('1009 Larch Drive')
+time.sleep(1)
+address.send_keys(Keys.ARROW_DOWN)
+time.sleep(1)
+address.send_keys(Keys.ENTER)
+print('replace address')
 
 #delete the city and reenter "Rexburg"
-driver.find_element_by_xpath("/html/body/div[1]/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/div/app-enter-information/form/div/div[2]/span[3]/p-autocomplete/span/input").clear()
-driver.find_element_by_xpath("/html/body/div[1]/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/div/app-enter-information/form/div/div[2]/span[3]/p-autocomplete/span/input").send_keys('Rexburg')
+city = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div[2]/app-ep-layout/div[2]/div/div/div[2]/div/div/app-enter-information/form/div/div[2]/span[3]/p-autocomplete/span/input")))
+city.clear()
+city.send_keys('Rexburg')
+print('replace city')
 
 # #delete the state and reenter "ID"
 driver.find_element_by_css_selector("#state > span > input").clear()
 driver.find_element_by_css_selector("#state > span > input").send_keys('ID')
+print('replace state')
 
 #delete the zip code and reenter "83440"
 driver.find_element_by_id("zip").clear()
 time.sleep(1)
 driver.find_element_by_id("zip").send_keys('83440')
+print('replace zip')
 
 #check and uncheck the "Hide your address from customers"
 
