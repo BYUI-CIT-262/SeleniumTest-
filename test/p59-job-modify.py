@@ -136,9 +136,12 @@ print('replace zip')
 addressCheckOn = driver.find_element_by_xpath('//*[@id="main-form"]/div/div/app-enter-information/form/div/div[2]/p-checkbox/div/div[2]')
 addressCheckOn.click()
 print('check hide address checkbox')
+time.sleep(1)
 addressCheckOff = driver.find_element_by_xpath('//*[@id="main-form"]/div/div/app-enter-information/form/div/div[2]/p-checkbox/div/div[2]/span')
 addressCheckOff.click()
 print('uncheck hide address checkbox')
+
+
 
 ########Clicks on the more info button.
 # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#pr_id_9 > div > div > div > div > div:nth-child(3) > div > div.icon"))).click()
@@ -159,3 +162,4 @@ driver.back()
 # time.sleep(5)
 print("test end")
 driver.quit()
+
