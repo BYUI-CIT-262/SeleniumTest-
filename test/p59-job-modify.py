@@ -25,11 +25,7 @@ def main(argv):
    if headless:
       driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
    else:
-<<<<<<< HEAD
-      driver = webdriver.Chrome(executable_path="../../chromedriver", options=options)
-=======
       driver = webdriver.Chrome("chromedriver", options=options)
->>>>>>> 2f42b47bfc0f33e0845f0f7f8840572b0e82a09a
    return driver
 
 
