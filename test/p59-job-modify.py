@@ -49,12 +49,10 @@ profile(driver)
 
 employeePortal(driver)
 
-time.sleep(5)
-
-
 #######Clicks on the billing button. 
 WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#pr_id_9 > div > div > div > div > div.ui-carousel-item.ui-carousel-item-active.ui-carousel-item-start.ng-star-inserted > div"))).click()
 print('click billing')
+time.sleep(3)
 
 
 
@@ -65,7 +63,7 @@ print('click more info')
 #delete the business name and reenter "testa"
 driver.find_element_by_id("businessName").clear()
 time.sleep(1)
-driver.find_element_by_id("businessName").send_keys('tesa')
+driver.find_element_by_id("businessName").send_keys('testa')
 print('replace business name')
 
 #delete the your name and reenter "test"
@@ -74,7 +72,7 @@ time.sleep(1)
 driver.find_element_by_id("title").send_keys('test')
 print('replace name')
 
-# #delete the email and reenter "jbrown@gmail.com" 
+# #delete the email and reenter "pitch59testa+5@gmail.com" 
 email = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#email")))
 
 #selects and deletes for mac
@@ -94,7 +92,7 @@ driver.find_element_by_css_selector("#contactNumber > input").send_keys('(123) 4
 print('replace phone number')
 
 
-#enter text into the field and then delete
+#---------- enter text into the field and then delete
 url = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "websiteLink")))
 url.send_keys('Delete me!')
 time.sleep(1)
@@ -135,6 +133,12 @@ driver.find_element_by_id("zip").send_keys('83440')
 print('replace zip')
 
 #check and uncheck the "Hide your address from customers"
+addressCheckOn = driver.find_element_by_xpath('//*[@id="main-form"]/div/div/app-enter-information/form/div/div[2]/p-checkbox/div/div[2]')
+addressCheckOn.click()
+print('check hide address checkbox')
+addressCheckOff = driver.find_element_by_xpath('//*[@id="main-form"]/div/div/app-enter-information/form/div/div[2]/p-checkbox/div/div[2]/span')
+addressCheckOff.click()
+print('uncheck hide address checkbox')
 
 ########Clicks on the more info button.
 # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#pr_id_9 > div > div > div > div > div:nth-child(3) > div > div.icon"))).click()
@@ -155,4 +159,3 @@ driver.back()
 # time.sleep(5)
 print("test end")
 driver.quit()
-
