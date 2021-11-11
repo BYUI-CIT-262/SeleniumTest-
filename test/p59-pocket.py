@@ -2,26 +2,31 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
-import sys, getopt
+import sys
+import getopt
 from selenium.webdriver import ActionChains
 
-def main(argv):
-   try:
-      opts, args = getopt.getopt(argv,"h")
-   except getopt.GetoptError:
-      print ('err')
-      sys.exit(2)
-      
-   headless = False
-   for opt, arg in opts:
-      if opt in ['-h']:
-         headless = True
 
-   if headless:
-      driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
-   else:
-      driver = webdriver.Chrome(executable_path="chromedriver", options=options)
-   return driver
+def main(argv):
+    try:
+        opts, args = getopt.getopt(argv, "h")
+    except getopt.GetoptError:
+        print('err')
+        sys.exit(2)
+
+    headless = False
+    for opt, arg in opts:
+        if opt in ['-h']:
+            headless = True
+
+    if headless:
+        driver = webdriver.Remote(
+            "http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
+    else:
+        driver = webdriver.Chrome(
+            executable_path="chromedriver", options=options)
+    return driver
+
 
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 options = webdriver.ChromeOptions()
@@ -34,11 +39,11 @@ options.add_argument('--no-sandbox')
 driver = main(sys.argv[1:])
 driver.get("https://public.p59.dev/welcome")
 
-#old account = 1111@gmail.com   pwd = Love1111
-#new test account = p59testa@gmail.com   pwd Love1111
+# old account = 1111@gmail.com   pwd = Love1111
+# new test account = p59testa@gmail.com   pwd Love1111
 
 link = driver.find_element_by_xpath(
-    #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]'
+    # '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]'
     'html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[4]')
 link.click()
 print('start test')
@@ -57,26 +62,32 @@ logIn.click()
 time.sleep(2)
 print('log in')
 
-profi = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div')
+profi = driver.find_element_by_xpath(
+    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div')
 profi.click()
 time.sleep(2)
 
-favorite = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div[2]/div/div/ul/li[2]/a/span')
+favorite = driver.find_element_by_xpath(
+    '/html/body/app-root/p-sidebar/div[2]/div/div/ul/li[2]/a/span')
 favorite.click()
 time.sleep(2)
 print('On favorite page and try to create a new pocket')
 
-addPocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[2]/div[2]/div')
+addPocket = driver.find_element_by_xpath(
+    '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[2]/div[2]/div')
 addPocket.click()
 time.sleep(1)
 
-pocketName = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[1]/div/div/div[2]/div/input')
+pocketName = driver.find_element_by_xpath(
+    '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[1]/div/div/div[2]/div/input')
 pocketName.send_keys('test')
 
-color = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[1]/div/div/div[2]/div/div/div[5]/div')
+color = driver.find_element_by_xpath(
+    '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[1]/div/div/div[2]/div/div/div[5]/div')
 color.click()
 
-create = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[1]/div/div/div[2]/div/button')
+create = driver.find_element_by_xpath(
+    '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[1]/div/div/div[2]/div/button')
 create.click()
 print('Create a test pocket')
 time.sleep(5)
@@ -96,22 +107,21 @@ time.sleep(5)
 # print('delete test pocket')
 
 intoHomePocket = driver.find_element_by_xpath(
-   '//*[@class="pocketName=>test ng-star-inserted"]/app-pocket-thumbnail/div/div[2]/div')
-   #'/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[3]/div[2]/div[4]')
+    '//*[@class="pocketName=>test ng-star-inserted"]/app-pocket-thumbnail/div/div[2]/div')
+# '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[3]/div[2]/div[4]')
 intoHomePocket.click()
 print('Select created pocket')
 time.sleep(2)
 
 
-
 delete = driver.find_element_by_xpath(
-   '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div/div[2]/div[2]/div[3]'
+    '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div/div[2]/div[2]/div[3]'
 )
 delete.click()
 time.sleep(1)
 
 confirmDelete = driver.find_element_by_xpath(
-   '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[2]/div/div/div[2]/div/div'
+    '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[2]/div/div/div[2]/div/div'
 )
 confirmDelete.click()
 print('Confirm delete')
@@ -121,12 +131,12 @@ profi.click()
 time.sleep(2)
 
 logOut = driver.find_element_by_xpath(
-   '/html/body/app-root/p-sidebar/div[2]/div/div/div[2]/div'
+    '/html/body/app-root/p-sidebar/div[2]/div/div/div[2]/div'
 )
 logOut.click()
 time.sleep(2)
 # copyToTest = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[3]/div[2]/app-search-result-thumbnail[1]')
-# act = ActionChains(driver) 
+# act = ActionChains(driver)
 # act.context_click(copyToTest).perform()
 # time.sleep(3)
 # # copyToTest.click()
@@ -144,7 +154,7 @@ time.sleep(2)
 # hover.perform()
 # .click().perform()
 # copyToTest3.click()
-#time.sleep(2)
+# time.sleep(2)
 
 # backToFavorite = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[1]/span/i')
 # backToFavorite.click()
@@ -180,31 +190,31 @@ time.sleep(2)
 # time.sleep(2)
 
 #backToFavorite = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[1]/span/i')
-#backToFavorite.click()
-#time.sleep(4)
+# backToFavorite.click()
+# time.sleep(4)
 #print('Back to favorite page')
 
 #testPocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[3]/div[2]/div[3]/app-pocket-thumbnail/div/div[2]')
-#testPocket.click()
-#time.sleep(2)
+# testPocket.click()
+# time.sleep(2)
 
 #deletePocket = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/div[1]/div[2]/div[2]/div[3]')
-#deletePocket.click()
-#time.sleep(2)
+# deletePocket.click()
+# time.sleep(2)
 
 #delete = driver.find_element_by_xpath('/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-my-pockets/p-dialog[2]/div/div/div[2]/div/div[1]')
-#delete.click()
-#time.sleep(2)
+# delete.click()
+# time.sleep(2)
 #print('delete test pocket')
 
-#profi = driver.find_element_by_xpath(
-   # '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
-#profi.click()
-#time.sleep(2)
+# profi = driver.find_element_by_xpath(
+# '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
+# profi.click()
+# time.sleep(2)
 
-#logOut = driver.find_element_by_xpath(
-    #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/div[2]/div')
-#logOut.click()
+# logOut = driver.find_element_by_xpath(
+# '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/div[2]/div')
+# logOut.click()
 #print('click profile and log out')
 
 
