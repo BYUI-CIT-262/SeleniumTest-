@@ -16,23 +16,23 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 def main(argv):
-    try:
-        opts, args = getopt.getopt(argv, "h")
-    except getopt.GetoptError:
-        print('err')
-        sys.exit(2)
+   try:
+      opts, args = getopt.getopt(argv,"h")
+   except getopt.GetoptError:
+      print ('err')
+      sys.exit(2)
+      
+   headless = False
+   for opt, arg in opts:
+      if opt in ['-h']:
+         headless = True
 
-    headless = False
-    for opt, arg in opts:
-        if opt in ['-h']:
-            headless = True
+   if headless:
+      driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
+   else:
+      driver = webdriver.Chrome("chromedriver", options=options)
+   return driver
 
-    if headless:
-        driver = webdriver.Remote(
-            "http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
-    else:
-        driver = webdriver.Chrome("chromedriver", options=options)
-    return driver
 
 
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
@@ -67,9 +67,16 @@ print('The original number of job cards:', num_rows)
 #    print(row.text)
 #    print(row.get_attribute('id'))
 
+#seclect Emnployer Portal
+#employerportal = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[2]')
+employerportal = WebDriverWait(driver,5).until(EC.element_to_be_clickable((By.XPATH, '/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[2]')))
+employerportal.click()
+
 # create a new job pitch card
-createPitchCard(driver)
-# selectJob(driver)
+createPitchCard = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '/html/body/app-root/main/app-account-employer-portal/div[1]/div/div/div[1]/div[1]/div[2]/div[2]')))
+createPitchCard.click()
+#createPitchCard(driver)
+#selectJob(driver)
 
 
 # Click on the "ADDPITCHCARDS" button in "How many Job PitchCards would you like
