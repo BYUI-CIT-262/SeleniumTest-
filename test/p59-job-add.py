@@ -27,7 +27,7 @@ def main(argv):
    if headless:
       driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
    else:
-      driver = webdriver.Chrome(executable_path="../../chromedriver", options=options)
+      driver = webdriver.Chrome("chromedriver", options=options)
    return driver
 
 
@@ -65,8 +65,15 @@ print('The original number of job cards:', num_rows)
 #    print(row.text)
 #    print(row.get_attribute('id'))
 
+#seclect Emnployer Portal
+#employerportal = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[2]')
+employerportal = WebDriverWait(driver,5).until(EC.element_to_be_clickable((By.XPATH, '/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[2]')))
+employerportal.click()
+
 # create a new job pitch card
-createPitchCard(driver)
+createPitchCard = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '/html/body/app-root/main/app-account-employer-portal/div[1]/div/div/div[1]/div[1]/div[2]/div[2]')))
+createPitchCard.click()
+#createPitchCard(driver)
 #selectJob(driver)
 
 
