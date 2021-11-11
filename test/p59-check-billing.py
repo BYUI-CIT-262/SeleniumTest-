@@ -20,11 +20,8 @@ def main(argv):
    if headless:
       driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
    else:
-<<<<<<< HEAD
-      driver = webdriver.Chrome(executable_path="../../chromedriver", options=options)
-=======
-      driver = webdriver.Chrome(options=options)
->>>>>>> 2f42b47bfc0f33e0845f0f7f8840572b0e82a09a
+      driver = webdriver.Chrome("chromedriver", options=options)
+
    return driver
 
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
@@ -62,23 +59,23 @@ time.sleep(2)
 print('log in')
 
 portal = driver.find_element_by_xpath(
-    '/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[2]'
-)
+    '/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[2]')
 portal.click()
+print('click employer portal')
 time.sleep(2)
 
 billing_button = driver.find_element_by_xpath(
-    '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-employer-portal/div/div/div/div/div/div/div[2]/div[2]/div/div'
-)
+    '//*[@id="pr_id_9"]/div/div/div/div/div[1]/div/div[1]')
 billing_button.click()
+print('click billing')
 time.sleep(2)
 
 
 # Change fields in the more info section. Save the changes, then revert them and save again.
 more_info = driver.find_element_by_xpath(
-    '/html/body/div/div/div[2]/app-ep-layout/div[2]/div/div/div/app-stepper/div/div/p-carousel/div/div/div/div/div/div[3]/div'
-)
+    '/html/body/div/div/div[2]/app-ep-layout/div[2]/div/div/div/app-stepper/div/div/p-carousel/div/div/div/div/div/div[3]/div')
 more_info.click()
+print('click more info')
 time.sleep(2)
 
 drop_down = driver.find_element_by_xpath(

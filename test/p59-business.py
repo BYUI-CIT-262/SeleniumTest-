@@ -4,6 +4,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
 import sys, getopt
 from selenium.webdriver.common.action_chains import ActionChains
+from p59_job_utils import *
 
 
 def main(argv):
@@ -34,24 +35,13 @@ options.add_argument('--no-sandbox')
 
 driver = main(sys.argv[1:])
 driver.get("https://public.p59.dev/welcome")
+print('test start')
 
-link = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
-link.click()
-
-#login with user 'p59testa@gmail.com' and passphrase 'Love1111' and click login
-email = driver.find_element_by_xpath('//*[@id="email"]')
-email.send_keys('p59testa@gmail.com')
-
-password = driver.find_element_by_xpath('//*[@id="password"]')
-password.send_keys('Love1111')
-
-logIn = driver.find_element_by_xpath('/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button')
-logIn.click()
-time.sleep(2)
-print('Log in')
+login(driver)
 
 #click to create pitchcard
-createPitchCard = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]')
+time.sleep(5)
+createPitchCard = driver.find_element_by_xpath('/html/body/app-root/main/app-welcome-page/section[1]/div/div/div[1]/div[3]/div')
 createPitchCard.click()
 print('click create pitchcard')
 time.sleep(2)

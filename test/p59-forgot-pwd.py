@@ -23,7 +23,7 @@ def main(argv):
    if headless:
       driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
    else:
-      driver = webdriver.Chrome(executable_path="chromedriver.exe", options=options)
+      driver = webdriver.Chrome("chromedriver", options=options)
    return driver
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 options = webdriver.ChromeOptions()
@@ -38,14 +38,14 @@ driver.get("https://public.p59.dev/welcome")
 #new test account = p59testa@gmail.com   pwd Love1111
 print('test start')
 link = driver.find_element_by_xpath(
-    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
+    '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[4]')
 link.click()
 print('click login')
 time.sleep(3)
 
-forget_password = driver.find_element_by_xpath(
+forgot_password = driver.find_element_by_xpath(
     '/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/div[2]/span')
-forget_password.click()
+forgot_password.click()
 print('click forgot password')
 
 input_email = driver.find_element_by_xpath(

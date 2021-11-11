@@ -4,6 +4,8 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
 import sys, getopt
 from selenium.webdriver.common.action_chains import ActionChains
+from p59_job_utils import *
+
 
 
 def main(argv):
@@ -34,27 +36,14 @@ options.add_argument('--no-sandbox')
 
 driver = main(sys.argv[1:])
 driver.get("https://public.p59.dev/welcome")
+print('test start')
 
-#old account = 1111@gmail.com   pwd = Love1111
-#new test account = p59testa@gmail.com   pwd Love1111
-link = driver.find_element_by_xpath(
-   #'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]'
-    'html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[4]')
-link.click()
+login(driver)
 
-email = driver.find_element_by_xpath('//*[@id="email"]')
-email.send_keys('pitch59testa+1@gmail.com')
-
-password = driver.find_element_by_xpath('//*[@id="password"]')
-password.send_keys('Love1111')
-
-logIn = driver.find_element_by_xpath('/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button')
-logIn.click()
-time.sleep(3)
-print('Log in')
-
-createPitchCard = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]')
+time.sleep(5)
+createPitchCard = driver.find_element_by_xpath('/html/body/app-root/main/app-welcome-page/section[1]/div/div/div[1]/div[3]/div')
 createPitchCard.click()
+print('click create pitchcard')
 time.sleep(2)
 
 employee = driver.find_element_by_xpath('/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[2]/div[3]/div[3]/button')
@@ -64,7 +53,7 @@ time.sleep(2)
 # nextBtn = driver.find_element_by_xpath('/html/body/app-root/main/app-new-cards-packges/div/div/div/div[3]/div/button')
 # nextBtn.click()
 # time.sleep(2)
-print('create nonprofit')
+print('click employee')
 
 free = driver.find_element_by_xpath('/html/body/app-root/main/app-billing-page/div/div/div/div/div[2]/app-visual-video/div/div[1]/div[2]/div[1]/div/div[2]')
 free.click()

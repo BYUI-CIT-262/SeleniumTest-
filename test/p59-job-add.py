@@ -27,7 +27,7 @@ def main(argv):
    if headless:
       driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options) 
    else:
-      driver = webdriver.Chrome(executable_path="../../chromedriver", options=options)
+      driver = webdriver.Chrome("chromedriver", options=options)
    return driver
 
 
@@ -41,16 +41,14 @@ options.add_argument('--no-sandbox')
 
 driver = main(sys.argv[1:])
 driver.get("https://public.p59.dev/welcome")
-
-
 print('test start')
 
 login(driver)
 
 # first, count the number of job cards on hand by going to the employee portal
 profile(driver)
-#employeePortal(driver)
-myPitchCards(driver)
+employeePortal(driver)
+# myPitchCards(driver)
 
 time.sleep(3)
 
