@@ -59,25 +59,25 @@ def setup_chromedriver(argv):
 
 
 def login_test_user(driver, test_email, test_password):
-    login_link = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "Log in")]')))
+    login_link = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "Log in")]')))
     login_link.click()
     print(f"Action: Click login link")
 
     # Enter email
-    email_input = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, '//*[@id="email"]')))
+    email_input = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, '//*[@id="email"]')))
     email_input.send_keys(test_email)
     print(f"Action: Enter email text")
 
     # Enter password
-    password_input = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, '//*[@id="password"]')))
+    password_input = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, '//*[@id="password"]')))
     password_input.send_keys(test_password)
     print(f"Action: Enter password text")
 
-    login_button = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, '//*[contains(@class, "button-simple")]')))
+    login_button = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, '//*[contains(@class, "button-simple")]')))
     login_button.click()
     print(f"Action: Click login submit button")
 
-    WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, '//*[contains(@class, "profile-photo-container")]')))
+    WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, '//*[contains(@class, "profile-photo-container")]')))
     is_element_present = len(driver.find_elements(By.XPATH, '//*[contains(@class, "profile-photo-container")]')) > 0
 
     if (is_element_present):
@@ -89,15 +89,15 @@ def login_test_user(driver, test_email, test_password):
 
 
 def logout_test_user(driver):
-    user_popup_menu = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//img[@class="profile-photo"]')))
+    user_popup_menu = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//img[@class="profile-photo"]')))
     user_popup_menu.click()
     print("Action: Open user popup menu")
 
-    logout_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(@class, "logout-btn") and contains(text(), "Logout")]')))
+    logout_button = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(@class, "logout-btn") and contains(text(), "Logout")]')))
     logout_button.click()
     print("Action: Click logout button")
 
-    WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "Log in")]')))
+    WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "Log in")]')))
     is_element_present = len(driver.find_elements(By.XPATH, '//*[contains(text(), "Log in")]')) > 0
 
     if (is_element_present):
@@ -110,14 +110,14 @@ def logout_test_user(driver):
 
 def go_to_employee_portal(driver):
     
-    employ_portal_link = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "Employer Portal")]')))
+    employ_portal_link = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "Employer Portal")]')))
     employ_portal_link.click()
     print(f"Action: Click employee portal link")
 
-    is_present = len(WebDriverWait(driver, 5).until(EC.presence_of_all_elements_located((By.XPATH, '//*[contains(@class, "ng-tns-c42") and contains(@class, "pi-times")]')))) > 0
+    is_present = len(WebDriverWait(driver, 100).until(EC.presence_of_all_elements_located((By.XPATH, '//*[contains(@class, "ng-tns-c42") and contains(@class, "pi-times")]')))) > 0
 
     if is_present:
-        close_menu_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(@class, "ng-tns-c42") and contains(@class, "pi-times")]')))
+        close_menu_button = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(@class, "ng-tns-c42") and contains(@class, "pi-times")]')))
         close_menu_button.click()
         print(f"Reset Action: Close Billing Pop Up")
 
@@ -127,35 +127,35 @@ def go_to_employee_portal(driver):
 
 
 def fill_out_form(driver):
-    billing_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(text(), "Billing")]')))
+    billing_button = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(text(), "Billing")]')))
     billing_button.click()
     print(f"Action: Click Billing")
 
-    more_info_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "More Info")]')))
+    more_info_button = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "More Info")]')))
     more_info_button.click()
     print(f"Action: Click More Info")
     
-    industry_drop_down_menu = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(@class, "ui-multiselect-trigger-icon")]')))
+    industry_drop_down_menu = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(@class, "ui-multiselect-trigger-icon")]')))
     industry_drop_down_menu.click()
     print(f"Action: Click Drop Down Menu")
     
-    industry_selection = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(text(), "Industry") and @class="ng-star-inserted"]')))
+    industry_selection = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(text(), "Industry") and @class="ng-star-inserted"]')))
     industry_selection.click()
     print(f"Action: Select Industry")
 
-    industry_drop_down_menu = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(@class, "ui-multiselect-trigger-icon")]')))
+    industry_drop_down_menu = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(@class, "ui-multiselect-trigger-icon")]')))
     industry_drop_down_menu.click()
     print(f"Action: Close Drop Down Menu")
     
-    text_entry = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//textarea[@id="description"]')))
+    text_entry = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//textarea[@id="description"]')))
     text_entry.send_keys('This is test information, but I am sure the real information will be pretty spiffy')
     print(f"Action: Enter text")
 
-    save_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(text(), "Save & Next") and contains(@class, "button-simple")]')))
+    save_button = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(text(), "Save & Next") and contains(@class, "button-simple")]')))
     save_button.click()
     print(f"Action: Save Changes")
 
-    close_menu_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(@class, "ng-tns-c42") and contains(@class, "pi-times")]')))
+    close_menu_button = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(@class, "ng-tns-c42") and contains(@class, "pi-times")]')))
     close_menu_button.click()
     print(f"Action: Close Billing Pop Up")
 
@@ -165,27 +165,27 @@ def fill_out_form(driver):
    
 
 def reset_form(driver):
-    billing_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(text(), "Billing")]')))
+    billing_button = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(text(), "Billing")]')))
     billing_button.click()
     print(f"Action: Click Billing")
 
-    more_info_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "More Info")]')))
+    more_info_button = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "More Info")]')))
     more_info_button.click()
     print(f"Action: Click More Info")
 
-    industry_drop_down_menu = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(@class, "ui-multiselect-trigger-icon")]')))
+    industry_drop_down_menu = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(@class, "ui-multiselect-trigger-icon")]')))
     industry_drop_down_menu.click()
     print(f"Action: Click Drop Down Menu")
 
-    industry_deselect = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(text(), "Industry") and @class="ng-star-inserted"]')))
+    industry_deselect = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(text(), "Industry") and @class="ng-star-inserted"]')))
     industry_deselect.click()
     print(f"Action: Deselect Industry")
 
-    industry_drop_down_menu = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(@class, "ui-multiselect-trigger-icon")]')))
+    industry_drop_down_menu = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(@class, "ui-multiselect-trigger-icon")]')))
     industry_drop_down_menu.click()
     print(f"Action: Close Drop Down Menu")
     
-    text_entry = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//textarea[@id="description"]')))
+    text_entry = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//textarea[@id="description"]')))
     # For WINDOWS
     text_entry.send_keys(Keys.CONTROL + "a")
     text_entry.send_keys(Keys.BACK_SPACE)
@@ -194,11 +194,11 @@ def reset_form(driver):
     text_entry.send_keys(Keys.BACK_SPACE)
     print(f"Action: Clear text")
 
-    save_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(text(), "Save & Next") and contains(@class, "button-simple")]')))
+    save_button = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(text(), "Save & Next") and contains(@class, "button-simple")]')))
     save_button.click()
     print(f"Action: Save Changes")
 
-    close_menu_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(@class, "ng-tns-c42") and contains(@class, "pi-times")]')))
+    close_menu_button = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, '//*[contains(@class, "ng-tns-c42") and contains(@class, "pi-times")]')))
     close_menu_button.click()
     print(f"Action: Close Billing Pop Up")
 
