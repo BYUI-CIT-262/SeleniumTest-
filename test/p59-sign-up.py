@@ -48,8 +48,8 @@ link = driver.find_element_by_xpath(
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[2]')
 link.click()
 
-firstName = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
-    (By.ID, 'firstName'))).click()
+firstName = WebDriverWait(driver, 2).until(EC.element_to_be_clickable(
+    (By.ID, 'firstName')))
 firstName.send_keys("test")
 
 lastName = driver.find_element_by_xpath('//*[@id="lastName"]')
