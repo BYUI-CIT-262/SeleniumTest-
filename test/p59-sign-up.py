@@ -48,27 +48,36 @@ link = driver.find_element_by_xpath(
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[2]')
 link.click()
 
+user_payload = {
+   'firstName': 'UserFirstNameTest',
+   'lastName': 'UserLastNameTest',
+   'emailId': 'useremailtestp59@gmail.com',
+   'contactNumber': '9999999485',
+   'zipCode': 'Love@1111',
+   'password': 'Love@1111'
+}
+
 firstName = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
     (By.ID, 'firstName'))).click()
-firstName.send_keys("test")
+firstName.send_keys(user_payload['firstName'])
 
 lastName = driver.find_element_by_xpath('//*[@id="lastName"]')
-lastName.send_keys('test')
+lastName.send_keys(user_payload['lastName'])
 
 email = driver.find_element_by_xpath('//*[@id="emailId"]')
-email.send_keys('p59testa+2@gmail.com')
+email.send_keys(user_payload['emailId'])
 
 number = driver.find_element_by_xpath('//*[@id="contactNumber"]/input')
-number.send_keys('9999999485')
+number.send_keys(user_payload['contactNumber'])
 
 zipCode = driver.find_element_by_xpath('//*[@id="zipCode"]')
-zipCode.send_keys('83440')
+zipCode.send_keys(user_payload['zipCode'])
 
 password = driver.find_element_by_xpath('//*[@id="password"]')
-password.send_keys('Love1111')
+password.send_keys(user_payload['password'])
 
 cPassword = driver.find_element_by_xpath('//*[@id="repassword"]')
-cPassword.send_keys('Love1111')
+cPassword.send_keys(user_payload['password'])
 
 signUp = driver.find_element_by_xpath(
     '/html/body/app-root/main/app-new-sign-up/div/div/div/div[2]/div/form/div[9]/button')
