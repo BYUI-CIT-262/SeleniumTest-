@@ -57,8 +57,8 @@ user_payload = {
    'password': 'Love@1111'
 }
 
-firstName = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
-    (By.ID, 'firstName'))).click()
+firstName = WebDriverWait(driver, 2).until(EC.element_to_be_clickable(
+    (By.ID, 'firstName')))
 firstName.send_keys(user_payload['firstName'])
 
 lastName = driver.find_element_by_xpath('//*[@id="lastName"]')
