@@ -50,6 +50,7 @@ link.click()
 
 firstName = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
     (By.ID, 'firstName'))).click()
+firstName.send_keys("test")
 
 lastName = driver.find_element_by_xpath('//*[@id="lastName"]')
 lastName.send_keys('test')
