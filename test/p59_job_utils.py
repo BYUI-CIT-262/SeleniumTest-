@@ -8,8 +8,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.support.ui import Select
 import time
-import sys
-import getopt
+import requests
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -41,6 +40,22 @@ def login(driver):
     logIn.click()
     time.sleep(2)
     print('login complete')
+
+# Logs in using the API and returns the userId and token
+
+
+def loginApi(user_payload):
+    body = {
+        "emailId": user_payload["emailId"],
+        "password": user_payload["password"],
+    }
+    response = requests.post(
+        'https://api.p59.dev/api/account/login', json=body)
+    if(response.status_code == 200):
+        data = response.json()
+        userData = [data["data"]["userId"], data["data"]["token"]]
+
+    return userData
 
 # makes sure the number of job cards being created it 1
 
