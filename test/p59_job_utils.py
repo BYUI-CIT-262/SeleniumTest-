@@ -51,6 +51,9 @@ def loginApi(user_payload):
     }
     response = requests.post(
         'https://api.p59.dev/api/account/login', json=body)
+
+    userData = []
+    print(response.status_code)
     if(response.status_code == 200):
         data = response.json()
         userData = [data["data"]["userId"], data["data"]["token"]]

@@ -7,6 +7,8 @@ from selenium.webdriver.common.by import By
 import time
 import sys
 import getopt
+from utilities.delete_user import *
+from p59_job_utils import loginApi
 
 
 def main(argv):
@@ -51,9 +53,9 @@ link.click()
 user_payload = {
    'firstName': 'UserFirstNameTest',
    'lastName': 'UserLastNameTest',
-   'emailId': 'useremailtestp59@gmail.com',
-   'contactNumber': '9999999485',
-   'zipCode': 'Love@1111',
+   'emailId': 'useremailtest05p59@gmail.com',
+   'contactNumber': '9999999005',
+   'zipCode': '83440',
    'password': 'Love@1111'
 }
 
@@ -107,6 +109,11 @@ button.click()
 
 # emailR = driver.find_element_by_xpath('//*[@id="refemailId"]')
 # emailR.send_keys('1111')
-print('created successfully')
+time.sleep(10)
+login_result = loginApi(user_payload)
+print('User Looged!')
+delete_user(login_result[0], login_result[1])
+print('User Deleted')
+
 time.sleep(5)
 driver.quit()
