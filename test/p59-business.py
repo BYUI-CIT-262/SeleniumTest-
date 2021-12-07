@@ -24,8 +24,7 @@ def main(argv):
         driver = webdriver.Remote(
             "http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
     else:
-        #driver = webdriver.Chrome(options=options)
-        driver = webdriver.Chrome(executable_path=r"C:/Users/user1/Documents/School/00TA/chromedriver.exe")
+        driver = webdriver.Chrome(options=options)
     return driver
 
 
