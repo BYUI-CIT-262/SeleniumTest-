@@ -42,32 +42,32 @@ driver.get("https://public.p59.dev/welcome")
 # new test account = p59testa@gmail.com   pwd Love1111
 
 print('test start')
-link = driver.find_element_by_xpath(
+link = driver.find_element(By.XPATH,
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[4]')
 link.click()
 print('click login')
 
 time.sleep(5)
-email = driver.find_element_by_xpath('//*[@id="email"]')
+email = driver.find_element(By.XPATH,'//*[@id="email"]')
 email.send_keys('pitch59testa+1@gmail.com')
 
-password = driver.find_element_by_xpath('//*[@id="password"]')
+password = driver.find_element(By.XPATH,'//*[@id="password"]')
 password.send_keys('Love1111')
 
-logIn = driver.find_element_by_xpath(
+logIn = driver.find_element(By.XPATH,
     '/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button')
 logIn.click()
 time.sleep(2)
 print('log in')
 
-# contact = driver.find_element_by_xpath(
+# contact = driver.find_element(By.XPATH,
 #     '//*[@id="search-swiper-pr_id_9"]/swiper/div/div[1]/div[3]/app-search-result-thumbnail/div/div[5]/div[2]')
 # time.sleep(3)
 
 # contact.click()
 # time.sleep(3)
 
-# rightBotton = driver.find_element_by_xpath(
+# rightBotton = driver.find_element(By.XPATH,
 #     '//*[@id="search-swiper-pr_id_9"]/swiper/div/div[4]')
 # rightBotton.click()
 # time.sleep(2)
@@ -75,12 +75,12 @@ print('log in')
 # time.sleep(2)
 # print('click right arrow on the pitch card')
 
-profi = driver.find_element_by_xpath(
+profi = driver.find_element(By.XPATH,
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div')
 profi.click()
 time.sleep(2)
 
-logOut = driver.find_element_by_xpath(
+logOut = driver.find_element(By.XPATH,
     '/html/body/app-root/p-sidebar/div[2]/div/div/div[2]/div')
 logOut.click()
 print('click profile and log out')

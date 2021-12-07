@@ -140,12 +140,12 @@ driver.find_element_by_id("zip").send_keys('83440')
 print('replace zip')
 
 # check and uncheck the "Hide your address from customers"
-addressCheckOn = driver.find_element_by_xpath(
+addressCheckOn = driver.find_element(By.XPATH,
     '//*[@id="main-form"]/div/div/app-enter-information/form/div/div[2]/p-checkbox/div/div[2]')
 addressCheckOn.click()
 print('check hide address checkbox')
 time.sleep(1)
-addressCheckOff = driver.find_element_by_xpath(
+addressCheckOff = driver.find_element(By.XPATH,
     '//*[@id="main-form"]/div/div/app-enter-information/form/div/div[2]/p-checkbox/div/div[2]/span')
 addressCheckOff.click()
 print('uncheck hide address checkbox')

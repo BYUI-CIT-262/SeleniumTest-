@@ -46,7 +46,7 @@ driver.get("https://public.p59.dev/welcome")
 # new test account = p59testa+1@gmail.com   pwd Love1111
 
 
-link = driver.find_element_by_xpath(
+link = driver.find_element(By.XPATH,
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[2]')
 link.click()
 
@@ -63,51 +63,51 @@ firstName = WebDriverWait(driver, 2).until(EC.element_to_be_clickable(
     (By.ID, 'firstName')))
 firstName.send_keys(user_payload['firstName'])
 
-lastName = driver.find_element_by_xpath('//*[@id="lastName"]')
+lastName = driver.find_element(By.XPATH,'//*[@id="lastName"]')
 lastName.send_keys(user_payload['lastName'])
 
-email = driver.find_element_by_xpath('//*[@id="emailId"]')
+email = driver.find_element(By.XPATH,'//*[@id="emailId"]')
 email.send_keys(user_payload['emailId'])
 
-number = driver.find_element_by_xpath('//*[@id="contactNumber"]/input')
+number = driver.find_element(By.XPATH,'//*[@id="contactNumber"]/input')
 number.send_keys(user_payload['contactNumber'])
 
-zipCode = driver.find_element_by_xpath('//*[@id="zipCode"]')
+zipCode = driver.find_element(By.XPATH,'//*[@id="zipCode"]')
 zipCode.send_keys(user_payload['zipCode'])
 
-password = driver.find_element_by_xpath('//*[@id="password"]')
+password = driver.find_element(By.XPATH,'//*[@id="password"]')
 password.send_keys(user_payload['password'])
 
-cPassword = driver.find_element_by_xpath('//*[@id="repassword"]')
+cPassword = driver.find_element(By.XPATH,'//*[@id="repassword"]')
 cPassword.send_keys(user_payload['password'])
 
-signUp = driver.find_element_by_xpath(
+signUp = driver.find_element(By.XPATH,
     '/html/body/app-root/main/app-new-sign-up/div/div/div/div[2]/div/form/div[9]/button')
 signUp.click()
 
 time.sleep(5)
 
-firstV = driver.find_element_by_xpath(
+firstV = driver.find_element(By.XPATH,
     '/html/body/div/div/div[2]/div/div[2]/div/app-verify-input/div/div[1]/input[1]')
 firstV.send_keys('1')
 
-secondV = driver.find_element_by_xpath(
+secondV = driver.find_element(By.XPATH,
     '/html/body/div/div/div[2]/div/div[2]/div/app-verify-input/div/div[1]/input[2]')
 secondV.send_keys('1')
 
-thirdV = driver.find_element_by_xpath(
+thirdV = driver.find_element(By.XPATH,
     '/html/body/div/div/div[2]/div/div[2]/div/app-verify-input/div/div[1]/input[3]')
 thirdV.send_keys('1')
 
-fourth = driver.find_element_by_xpath(
+fourth = driver.find_element(By.XPATH,
     '/html/body/div/div/div[2]/div/div[2]/div/app-verify-input/div/div[1]/input[4]')
 fourth.send_keys('1')
 
-button = driver.find_element_by_xpath(
+button = driver.find_element(By.XPATH,
     '/html/body/div/div/div[2]/div/div[2]/div/app-verify-input/div/div[2]/button')
 button.click()
 
-# emailR = driver.find_element_by_xpath('//*[@id="refemailId"]')
+# emailR = driver.find_element(By.XPATH,'//*[@id="refemailId"]')
 # emailR.send_keys('1111')
 time.sleep(10)
 login_result = loginApi(user_payload)

@@ -43,23 +43,23 @@ driver.get("https://public.p59.dev/welcome")
 # old account = 1111@gmail.com   pwd = Love1111
 # new test account = p59testa@gmail.com   pwd Love1111
 print('test start')
-link = driver.find_element_by_xpath(
+link = driver.find_element(By.XPATH,
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[4]')
 link.click()
 print('click login')
 time.sleep(3)
 
-forgot_password = driver.find_element_by_xpath(
+forgot_password = driver.find_element(By.XPATH,
     '/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/div[2]/span')
 forgot_password.click()
 print('click forgot password')
 
-input_email = driver.find_element_by_xpath(
+input_email = driver.find_element(By.XPATH,
     '//*[@id="userName"]')
 input_email.send_keys(USERNAME)
 print('input email')
 
-send = driver.find_element_by_xpath(
+send = driver.find_element(By.XPATH,
     '/html/body/app-root/main/app-forgot-password/div/div/div/div/div[2]/div/form/button')
 send.click()
 print('click send \nsending otp email')
@@ -125,21 +125,21 @@ while found:
             found = False
 # print('second', worddd)
 print('code', codenum)
-input_code = driver.find_element_by_xpath(
+input_code = driver.find_element(By.XPATH,
     '//*[@id="smsOtpCode"]')
 for i in codenum:
     input_code.send_keys(i)
     print(i)
 print('insert code')
-input_new_pwd = driver.find_element_by_xpath(
+input_new_pwd = driver.find_element(By.XPATH,
     '//*[@id="newpassword"]')
 input_new_pwd.send_keys(PASSWORD)
 print('insert new password')
-verify_new_pwd = driver.find_element_by_xpath(
+verify_new_pwd = driver.find_element(By.XPATH,
     '//*[@id="confirmpassword"]')
 verify_new_pwd.send_keys(PASSWORD)
 print('verify new password')
-reset = driver.find_element_by_xpath(
+reset = driver.find_element(By.XPATH,
     '/html/body/app-root/main/app-reset-password/div/div/div/div/div/form/div[6]/button')
 reset.click()
 print('click reset')

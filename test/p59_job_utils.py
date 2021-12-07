@@ -20,7 +20,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 #
 def login(driver):
     # test account = p59testa+5@gmail.com   pwd Love1111
-    link = driver.find_element_by_xpath(
+    link = driver.find_element(By.XPATH,
         '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[4]'
     )
     link.click()
@@ -34,7 +34,7 @@ def login(driver):
         EC.element_to_be_clickable((By.XPATH, '//*[@id="password"]')))
     password.send_keys('Love1111')
 
-    logIn = driver.find_element_by_xpath(
+    logIn = driver.find_element(By.XPATH,
         '/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button'
     )
     logIn.click()
@@ -64,10 +64,10 @@ def loginApi(user_payload):
 
 
 def selectNumOfJobs(driver):
-    driver.find_element_by_xpath(
+    driver.find_element(By.XPATH,
         '/html/body/div[2]/div/div[2]/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input').clear()
    # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By. '/html/body/div[1]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input'))).clear()
-   # driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input').clear()
+   # driver.find_element(By.XPATH,'/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input').clear()
     print('enters 1 into text for how many job cards you want to create')
 #
 # Logout
@@ -75,14 +75,14 @@ def selectNumOfJobs(driver):
 
 
 def logout(driver):
-    profi = driver.find_element_by_xpath(
+    profi = driver.find_element(By.XPATH,
         '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[3]/div/div'
     )
     profi.click()
     time.sleep(2)
     print('click profile')
 
-    logOut = driver.find_element_by_xpath(
+    logOut = driver.find_element(By.XPATH,
         '/html/body/app-root/p-sidebar/div[2]/div/div/div[2]/div'
     )
     logOut.click()
@@ -130,7 +130,7 @@ def profile(driver):
 
 
 def employeePortal(driver):
-    employer_portals = driver.find_element_by_xpath(
+    employer_portals = driver.find_element(By.XPATH,
         '/html/body/app-root/p-sidebar/div[2]/div/div/ul/li[3]/a/span'
 
     )
@@ -139,7 +139,7 @@ def employeePortal(driver):
 
 
 def myPitchCards(driver):
-    my_pitchCards = driver.find_element_by_xpath(
+    my_pitchCards = driver.find_element(By.XPATH,
         '/html/body/app-root/p-sidebar/div[2]/div/div/ul/li[1]/a/span'
     )
     my_pitchCards.click()

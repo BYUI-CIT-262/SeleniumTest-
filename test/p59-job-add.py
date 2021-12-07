@@ -68,7 +68,7 @@ print('The original number of job cards:', num_rows)
 #    print(row.get_attribute('id'))
 
 #seclect Emnployer Portal
-#employerportal = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[2]')
+#employerportal = driver.find_element(By.XPATH,'/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[2]')
 employerportal = WebDriverWait(driver,5).until(EC.element_to_be_clickable((By.XPATH, '/html/body/app-root/p-sidebar/div/div/div/app-welcome-page-header/div/div[2]/span[2]')))
 employerportal.click()
 
@@ -82,7 +82,7 @@ createPitchCard.click()
 # Click on the "ADDPITCHCARDS" button in "How many Job PitchCards would you like
 # to create now?" window.
 # time.sleep(5)
-# numCards = driver.find_element_by_xpath(
+# numCards = driver.find_element(By.XPATH,
 #   '/html/body/div[1]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input'
 # )
 
@@ -98,7 +98,7 @@ createPitchCard.click()
 # numCards.clear()
 
 # click the add pitchcards button
-# addPitchCards = driver.find_element_by_xpath(
+# addPitchCards = driver.find_element(By.XPATH,
 #   '/html/body/div[1]/div/div[2]/div/app-create-team-pitchcard/div/div[2]/button'
 # )
 # addPitchCards.click()

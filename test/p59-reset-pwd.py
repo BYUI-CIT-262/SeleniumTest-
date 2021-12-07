@@ -45,60 +45,60 @@ pwd1 = 'Love1111'
 pwd = 'Love1111'
 
 print('test start')
-link = driver.find_element_by_xpath(
+link = driver.find_element(By.XPATH,
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
 link.click()
 
-email = driver.find_element_by_xpath('//*[@id="email"]')
+email = driver.find_element(By.XPATH,'//*[@id="email"]')
 email.send_keys('pitch59testa+1@gmail.com')
 
-password = driver.find_element_by_xpath('//*[@id="password"]')
+password = driver.find_element(By.XPATH,'//*[@id="password"]')
 password.send_keys(pwd)
 
-logIn = driver.find_element_by_xpath(
+logIn = driver.find_element(By.XPATH,
     '/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button')
 logIn.click()
 time.sleep(2)
 print('log in')
 
-profi = driver.find_element_by_xpath(
+profi = driver.find_element(By.XPATH,
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
 profi.click()
 time.sleep(2)
 
-setting = driver.find_element_by_xpath(
+setting = driver.find_element(By.XPATH,
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/p-overlaypanel[2]/div/div/div/div[1]/div/a/div')
 setting.click()
 time.sleep(2)
 
-chagePwd = driver.find_element_by_xpath(
+chagePwd = driver.find_element(By.XPATH,
     '/html/body/app-root/main/app-history-favorites-layout/div/div/div/div/div/div[2]/app-account-settings/div/div/div[1]/div[2]')
 chagePwd.click()
 time.sleep(2)
 print('Click Change password')
 
-currentPwd = driver.find_element_by_xpath('//*[@id="oldpassword"]')
+currentPwd = driver.find_element(By.XPATH,'//*[@id="oldpassword"]')
 currentPwd.send_keys(pwd)
 
-newPwd = driver.find_element_by_xpath('//*[@id="password"]')
+newPwd = driver.find_element(By.XPATH,'//*[@id="password"]')
 newPwd.send_keys(pwd1)
 
-confirmPwd = driver.find_element_by_xpath('//*[@id="confirmpassword"]')
+confirmPwd = driver.find_element(By.XPATH,'//*[@id="confirmpassword"]')
 confirmPwd.send_keys(pwd1)
 
-change = driver.find_element_by_xpath(
+change = driver.find_element(By.XPATH,
     '/html/body/app-root/main/app-change-password/div/div/div/div/div[2]/div/form/button')
 change.click()
 time.sleep(2)
 print('Change password successfully')
 
-email = driver.find_element_by_xpath('//*[@id="email"]')
+email = driver.find_element(By.XPATH,'//*[@id="email"]')
 email.send_keys('pitch59testa+1@gmail.com')
 
-password = driver.find_element_by_xpath('//*[@id="password"]')
+password = driver.find_element(By.XPATH,'//*[@id="password"]')
 password.send_keys(pwd1)
 
-logIn = driver.find_element_by_xpath(
+logIn = driver.find_element(By.XPATH,
     '/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button')
 logIn.click()
 time.sleep(2)

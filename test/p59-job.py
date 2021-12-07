@@ -52,19 +52,19 @@ driver.get("https://public.p59.dev/welcome")
 # new test account = p59testa@gmail.com   pwd Love1111
 
 print('test start')
-link = driver.find_element_by_xpath(
+link = driver.find_element(By.XPATH,
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/span[3]')
 link.click()
 print('click login')
 
 time.sleep(2)
-email = driver.find_element_by_xpath('//*[@id="email"]')
+email = driver.find_element(By.XPATH,'//*[@id="email"]')
 email.send_keys(user_email)
 
-password = driver.find_element_by_xpath('//*[@id="password"]')
+password = driver.find_element(By.XPATH,'//*[@id="password"]')
 password.send_keys('Love1111')
 
-logIn = driver.find_element_by_xpath(
+logIn = driver.find_element(By.XPATH,
     '/html/body/app-root/main/app-new-sign-in/div/div/div/div/div[2]/div/form/button')
 logIn.click()
 time.sleep(2)
@@ -75,7 +75,7 @@ print('log in')
 def check_exists_by_xpath(xpath):
     try:                                                 # DO NOT DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         # DO NOT DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        driver.find_element_by_xpath(xpath)
+        driver.find_element(By.XPATH,xpath)
     except NoSuchElementException:                       # DO NOT DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         # DO NOT DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         return False
@@ -84,7 +84,7 @@ def check_exists_by_xpath(xpath):
 # Check the xpath value################################################################################
 
 
-create_pitchcard = driver.find_element_by_xpath(
+create_pitchcard = driver.find_element(By.XPATH,
     '//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[2]/div[1]')
 create_pitchcard.click()
 print('click create pitchcard')
@@ -92,7 +92,7 @@ time.sleep(3)
 
 xpath = '/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[2]/div[5]/div[3]/button'
 if check_exists_by_xpath(xpath):
-    jobcard = driver.find_element_by_xpath(xpath)
+    jobcard = driver.find_element(By.XPATH,xpath)
     jobcard.click()
     print('click job card')
 else:
@@ -107,7 +107,7 @@ time.sleep(3)
 
 xpath = '/html/body/div[1]/div/div[2]/div/div[4]/div'
 if check_exists_by_xpath(xpath):
-    jobcard = driver.find_element_by_xpath(xpath)
+    jobcard = driver.find_element(By.XPATH,xpath)
     jobcard.click()
     print('click create Employer Portal')
     time.sleep(3)
@@ -121,7 +121,7 @@ else:
 
 xpath = '/html/body/app-root/main/app-billing-page/div/div/div/div/div/app-billing-summary/div/div/div[2]/div[1]/div'
 if check_exists_by_xpath(xpath):
-    jobcard = driver.find_element_by_xpath(xpath)
+    jobcard = driver.find_element(By.XPATH,xpath)
     jobcard.click()
     print('click add payment method')
     time.sleep(3)
@@ -142,7 +142,7 @@ month = '12'
 year = '2021'
 xpath = '//*[@id="cardNumber"]/input'
 if check_exists_by_xpath(xpath):
-    jobcard = driver.find_element_by_xpath(xpath)
+    jobcard = driver.find_element(By.XPATH,xpath)
     jobcard.send_keys(card_number)
     print('add card number')
     time.sleep(2)
@@ -155,7 +155,7 @@ else:
 
 xpath = '//*[@id="month"]/span/input'
 if check_exists_by_xpath(xpath):
-    jobcard = driver.find_element_by_xpath(xpath)
+    jobcard = driver.find_element(By.XPATH,xpath)
     jobcard.send_keys(month)
     print('add month')
 else:
@@ -167,7 +167,7 @@ else:
 
 xpath = '//*[@id="year"]/span/input'
 if check_exists_by_xpath(xpath):
-    jobcard = driver.find_element_by_xpath(xpath)
+    jobcard = driver.find_element(By.XPATH,xpath)
     jobcard.send_keys(month)
     print('add year')
 else:
@@ -179,7 +179,7 @@ else:
 
 xpath = '/html/body/div[2]/div/div[2]/div/div[2]/app-payment-method-forms/div/div/div[1]/form/div[2]/div[3]/span/input'
 if check_exists_by_xpath(xpath):
-    jobcard = driver.find_element_by_xpath(xpath)
+    jobcard = driver.find_element(By.XPATH,xpath)
     jobcard.send_keys(cvc)
     print('add cvc')
 else:
@@ -194,7 +194,7 @@ else:
 
 xpath = '/html/body/div[2]/div/div[2]/div/div[2]/app-payment-method-forms/div/div/div[2]/div/button'
 if check_exists_by_xpath(xpath):
-    jobcard = driver.find_element_by_xpath(xpath)
+    jobcard = driver.find_element(By.XPATH,xpath)
     jobcard.click()
     print('click save')
     time.sleep(3)
@@ -207,20 +207,20 @@ else:
     print('user deleted')
     print('**Test Failed**')
     driver.quit()
-#   num_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input')
+#   num_job_card = driver.find_element(By.XPATH,'/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[1]/div[2]/div[1]/p-inputnumber/span/input')
 #   num_job_card.clear()
 #   num_job_card.send_keys('1')
 
-#   create_job_card = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[2]/button')
+#   create_job_card = driver.find_element(By.XPATH,'/html/body/div[2]/div/div[2]/div/app-create-team-pitchcard/div/div[2]/button')
 # create_job_card.click()
   #  print('create 1 Job Card')
 
     # -----------------------------------------------------------------------------------------------------
-#profi = driver.find_element_by_xpath('//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
+#profi = driver.find_element(By.XPATH,'//*[@id="header-container"]/div/app-welcome-page-header/div/div[2]/div[4]/div')
 # profi.click()
 # time.sleep(2)
 
-#logOut = driver.find_element_by_xpath('/html/body/app-root/p-sidebar/div')
+#logOut = driver.find_element(By.XPATH,'/html/body/app-root/p-sidebar/div')
 # logOut.click()
 #print('click profile and log out')
 

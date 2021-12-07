@@ -50,14 +50,14 @@ login(driver)
 createPitchCard(driver)
 
 # Get the current billing info
-billingInfo = driver.find_element_by_xpath(
+billingInfo = driver.find_element(By.XPATH,
     '/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[1]/div/div/div/p-inputswitch/div/div/input'
 )
 
 # If it is Annual Billing (aria-checked == "true"), set it to Monthly billing ("false")
 billingChoice = billingInfo.get_attribute("aria-checked")
 if billingChoice == "true":
-    driver.find_element_by_xpath(
+    driver.find_element(By.XPATH,
         '/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[1]/div/div/div/p-inputswitch/div/span'
     ).click()
 
@@ -69,7 +69,7 @@ if billingChoice == "true":
         print('Billing choice is set to Monthly.')
 
         # Change back to Annual billing
-        driver.find_element_by_xpath(
+        driver.find_element(By.XPATH,
             '/html/body/app-root/main/app-choose-pitchcard-page/div/div/app-choose-pitchcard/div/div/div[1]/div/div/div/p-inputswitch/div/span'
         ).click()
         time.sleep(2)
