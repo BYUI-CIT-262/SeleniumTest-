@@ -7,7 +7,7 @@ Configures the app to run in headless mode (chrome window wont show up while tes
 --headless or -h
 
 ## Docker Mode
-=======
+
 Run pip install -r requirements.txt
 
 Run the tests with pytest
