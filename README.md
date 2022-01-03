@@ -2,7 +2,6 @@ Standardized tests can also be found in a github repo https://github.com/BYUI-CI
 
 Setup
 
-<<<<<<< HEAD
 Headless Mode
 Configures the app to run in headless mode (chrome window wont show up while testing).
 --headless or -h
@@ -10,7 +9,6 @@ Configures the app to run in headless mode (chrome window wont show up while tes
 ## Docker Mode
 =======
 Run pip install -r requirements.txt
->>>>>>> 24c477030c5b745487d7bf5f2b375dd2608586a1
 
 Run the tests with pytest
 
